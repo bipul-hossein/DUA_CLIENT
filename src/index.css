@@ -9,7 +9,7 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
-  background: url(/public/templatemo_pagebg.jpg) no-repeat #0d293b top center;
+  background: url(/templatemo_pagebg.jpg) no-repeat #0d293b top center;
 }
 /* slider css start */
 .swiper-container {
@@ -46,3 +46,24 @@ body {
 }
 
 /* slider css end */
+
+
+@media (max-width: 768px) {
+  .menu-enter {
+      transform: translateX(100%);
+  }
+
+  .menu-enter-active {
+      transform: translateX(0);
+      transition: transform 500ms ease-in-out;
+  }
+
+  .menu-exit {
+      transform: translateX(0);
+  }
+
+  .menu-exit-active {
+      transform: translateX(-100%);
+      transition: transform 500ms ease-in-out;
+  }
+}

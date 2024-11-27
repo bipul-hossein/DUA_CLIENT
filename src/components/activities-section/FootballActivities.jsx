@@ -2,12 +2,15 @@ import React from 'react';
 
 const FootballActivities = () => {
     return (
-        <section className=" bg-gray-50 mt-12">
-            <div className="container mx-auto grid grid-cols-2">
+        <section
+            className="mt-12 rounded-lg"
+            style={{ backgroundImage: 'radial-gradient(ellipse closest-corner at center, white 30%, #9fbed1 100%)' }}
+        >
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2">
 
                 {/* Content Side */}
                 <div className="px-4 md:px-8 py-8">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0383d0]">
                         Regular
                         <span className="block"> Football practice</span>
                     </h2>
@@ -28,17 +31,17 @@ const FootballActivities = () => {
                         </p>
                     </div>
 
-                    <button className="mt-8 px-8 py-3 bg-emerald-400 text-white rounded-md hover:bg-emerald-500 transition-colors">
-                        show more
+                    <button className="mt-8 px-8 py-3 text-white rounded-md bg-[#14649b] hover:bg-[#092f48] transition-colors">
+                        See More
                     </button>
                 </div>
                 <div className="">
                     {/* image Side */}
                     <div className="cursor-pointer">
                         <img
-                            src="/public/football.jpg"
+                            src="/football.jpg"
                             alt="Children's activities"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover rounded-r-lg"
                         />
 
                     </div>

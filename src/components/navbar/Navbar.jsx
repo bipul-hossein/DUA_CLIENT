@@ -52,11 +52,11 @@ export default function Navbar() {
         <nav className="bg-[#14649b]">
             {/* Desktop Navigation */}
             <div className="w-full md:w-[80%] md:mx-auto">
-                <div className="flex items-center justify-between h-16 mx-3 md:mx-0">
+                <div className="flex items-center justify-between h-16 mx-3 md:mx-0 z-50">
                     {/* Logo */}
                     <div className="w-32">
                         <Link to="/" className="">
-                            <img src="/public/logo.png" alt="logo" />
+                            <img src="/logo.png" alt="logo" />
                         </Link>
                     </div>
 
@@ -73,13 +73,13 @@ export default function Navbar() {
                                         {item.label}
                                     </Link>
                                     {item.subLinks && (
-                                        <div className="absolute left-0 w-48 bg-blue-700 rounded-md shadow-lg hidden group-hover:block">
+                                        <div className="absolute left-0 w-48 bg-[#14649b] shadow-lg hidden group-hover:block z-50">
                                             <div className="py-2">
                                                 {item.subLinks.map(subLink => (
                                                     <Link
                                                         key={subLink.to}
                                                         to={subLink.to}
-                                                        className="block px-4 py-2 text-white hover:bg-blue-600 rounded-md transition-colors"
+                                                        className="block px-4 py-2 text-white hover:bg-[#092f48] transition-colors"
                                                     >
                                                         {subLink.label}
                                                     </Link>
@@ -105,9 +105,11 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Navigation */}
-            {isOpen && (
-                <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#14649b]">
+            <div className="md:hidden">
+
+                <div className={`w-64 h-screen border-primary md:rounded-xl bg-[#212121] flex flex-col justify-between fixed md:static inset-y-0 right-0 md:left-0 mt-0 md:mt-0 transform ${isOpen ? "translate-x-0" : "translate-x-full"
+                    } md:translate-x-0 transition-transform duration-200 ease-in-out z-50`}>
+                    <div className="overflow-y-auto h-full max-h-screen px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#14649b]">
                         {menuItems.map(item => (
                             <div key={item.to}>
                                 <div className="flex items-center justify-between px-3 py-2 text-white hover:bg-blue-600 transition-colors"
@@ -143,7 +145,14 @@ export default function Navbar() {
                         ))}
                     </div>
                 </div>
-            )}
+                {/* Overlay for mobile */}
+                {isOpen && (
+                    <div
+                        onClick={toggleMenu}
+                        className="fixed inset-0 bg-black opacity-50 md:hidden z-40"
+                    ></div>
+                )}
+            </div>
         </nav>
     );
 }
