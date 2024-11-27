@@ -10,7 +10,7 @@ export default function ActivitiesSection() {
                         <div className="relative aspect-video overflow-hidden rounded-lg">
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
                             <img
-                                src="/placeholder.svg?height=400&width=600"
+                                src="/pu"
                                 alt="Children's activities"
                                 className="w-full h-full object-cover"
                             />

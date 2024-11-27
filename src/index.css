@@ -2,19 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color: azure;
+body {
+  font: 13px / 1.85em 'Open Sans', Arial, Helvetice Neue, sans-serif;
+  color: white;
+  font-weight: 600;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  background: url(/public/templatemo_pagebg.jpg) no-repeat #0d293b top center;
 }
 /* slider css start */
 .swiper-container {
   width: 100%;
-  height: 315px;
+  max-height: 581px;
   overflow: hidden;
   position: relative;
 }
 .swiper {
   width: 100%;
-  height: 315px !important;
+  max-height: 581px !important;
 } 
 
 

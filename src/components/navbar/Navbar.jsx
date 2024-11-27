@@ -49,14 +49,14 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-gradient-to-b from-blue-900 to-blue-700 ">
+        <nav className="bg-[#14649b]">
             {/* Desktop Navigation */}
-            <div className="max-w-7xl w-full md:w-[80%] mx-3 md:mx-auto">
-                <div className="flex items-center justify-between h-16">
+            <div className="w-full md:w-[80%] md:mx-auto">
+                <div className="flex items-center justify-between h-16 mx-3 md:mx-0">
                     {/* Logo */}
-                    <div className="flex-shrink-0">
-                        <Link to="/" className="flex items-center">
-                            <span className="text-white text-2xl font-bold tracking-wider">DULLES UNITED</span>
+                    <div className="w-32">
+                        <Link to="/" className="">
+                            <img src="/public/logo.png" alt="logo" />
                         </Link>
                     </div>
 
@@ -67,7 +67,7 @@ export default function Navbar() {
                                 <div key={item.to} className="relative group">
                                     <Link
                                         to={item.to}
-                                        className="flex flex-col items-center px-6 py-2 text-white hover:bg-blue-600 transition-colors"
+                                        className="flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors"
                                     >
                                         <item.icon className="w-5 h-5" />
                                         {item.label}
@@ -107,7 +107,7 @@ export default function Navbar() {
             {/* Mobile Navigation */}
             {isOpen && (
                 <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-800">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#14649b]">
                         {menuItems.map(item => (
                             <div key={item.to}>
                                 <div className="flex items-center justify-between px-3 py-2 text-white hover:bg-blue-600 transition-colors"

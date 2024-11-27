@@ -26,7 +26,7 @@ export default function GetInvolved() {
     <section className="py-16 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-4">GET INVOLVED</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="max-w-2xl mx-auto">
           All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
           making this the first true generator on the Internet.
         </p>
@@ -36,17 +36,17 @@ export default function GetInvolved() {
         {cards.map((card, index) => {
           const Icon = card.icon
           const textColor = card.bgColor === "bg-yellow-400" ? "text-zinc-800" : "text-white"
-          
           return (
-            <div 
-              key={index} 
-              className="flex flex-col items-center bg-gray-100 rounded-lg overflow-hidden transition-transform hover:scale-105"
+            <div
+              key={index}
+              className=" flex flex-col items-center rounded-lg overflow-hidden transition-transform hover:scale-105"
+              style={{ backgroundImage: 'radial-gradient(ellipse closest-corner at center, white 30%, #9fbed1 100%)' }}
             >
               <div className="p-8 flex flex-col items-center w-full">
-                <Icon className="w-12 h-12 mb-4" />
-                <h3 className="text-xl font-bold mb-4">{card.title}</h3>
+                <Icon className="w-12 h-12 mb-4 text-[#0383d0]" />
+                <h3 className="text-xl font-bold mb-4 text-[#0383d0]">{card.title}</h3>
               </div>
-              
+
               <div className={`${card.bgColor} p-6 w-full mt-auto`}>
                 <p className={`text-center ${textColor}`}>
                   {card.description}

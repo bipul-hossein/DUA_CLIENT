@@ -1,13 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import ScrollToTop from '../../hooks/ScrollToTop';
 import Navbar from "../navbar/Navbar"
-import Footer from '../features-section/Footer';
+import Footer from '../footer/Footer';
+
 
 const MainLayout = () => {
     return (
-        <div className="font-display bg-red-50">
+        <div className="font-display">
             <Navbar />
-            <div className="w-full mx-3 md:mx-auto">
+            <div className="w-full md:w-[80%] md:mx-auto">
                 <ScrollToTop />
                 <Outlet />
             </div>
