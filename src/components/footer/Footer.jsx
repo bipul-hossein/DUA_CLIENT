@@ -28,7 +28,7 @@ export default function Footer() {
                             Dulles United Association is a 501(c3) non-profit organization serving in Northern Virginia to promote and provide social & sports opportunities to individuals. Our vision is to support our community by organizing various sports and social events.
                         </p>
                         <div className="flex gap-4">
-                            <Link to="#" className="text-white hover:text-gray-900">
+                            <Link to="https://www.facebook.com/dullesunited/" className="text-white hover:text-gray-900">
                                 <Facebook className="w-5 h-5" />
                             </Link>
                             <Link to="#" className="text-white hover:text-gray-900">
@@ -47,7 +47,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-bold mb-4">Services</h3>
                         <ul className="space-y-3">
-                            {['Donate', 'Sponsor', 'Fundraise', 'Volunteer', 'Partner', 'Jobs'].map((item) => (
+                            {['Donate', 'Sponsor', 'Fundraise', 'Volunteer', 'Partner'].map((item) => (
                                 <li key={item}>
                                     <Link to="#" className="text-white hover:text-gray-900">
                                         {item}
@@ -61,33 +61,18 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-bold mb-4">Contacts</h3>
                         <div className="space-y-3 text-white">
-                            <p>+2(305) 587-3407</p>
-                            <p>info@.com</p>
+                            <p>+1 (305) 587-3407</p>
+                            <p>info@dullesunited.com</p>
                             <p>Northern Virginia, USA</p>
                         </div>
                     </div>
 
-                    {/* Top News */}
+
+                    {/* Partner */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Top News</h3>
+                        <h3 className="text-xl font-bold mb-4">Media Partner:</h3>
                         <div className="space-y-4">
-                            {newsItems.map((item, index) => (
-                                <div key={index} className="flex gap-4">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        width={80}
-                                        height={60}
-                                        className="rounded object-cover"
-                                    />
-                                    <div>
-                                        <h4 className="font-medium text-sm hover:text-blue-600">
-                                            <Link to="#">{item.title}</Link>
-                                        </h4>
-                                        <p className="text-sm text-white">{item.date}</p>
-                                    </div>
-                                </div>
-                            ))}
+                            <p>নিউজবিডিইউএস ওয়াশিংটনডিসি</p>
                         </div>
                     </div>
                 </div>

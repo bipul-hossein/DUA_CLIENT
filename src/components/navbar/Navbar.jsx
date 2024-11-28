@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from 'react';
 import { Menu, X, Home, Info, Calendar, Star, Feather, Mail, DollarSign, ChevronDown, ChevronUp } from 'lucide-react';
 
 const menuItems = [
     { to: "/", icon: Home, label: "HOME" },
-    { to: "/about", icon: Info, label: "About Us" },
+    { to: "/about-us", icon: Info, label: "About Us" },
     { to: "/events", icon: Calendar, label: "Events" },
     {
-        to: "/soccer",
+        to: "",
         icon: Star,
         label: "Soccer",
         subLinks: [
@@ -18,7 +18,7 @@ const menuItems = [
         ]
     },
     {
-        to: "/badminton",
+        to: "",
         icon: Feather,
         label: "Badminton",
         subLinks: [
@@ -28,11 +28,12 @@ const menuItems = [
             { to: "/badminton/gallery", label: "Gallery" }
         ]
     },
-    { to: "/contact", icon: Mail, label: "Contact Us" },
+    { to: "/contact-us", icon: Mail, label: "Contact Us" },
     { to: "/donation", icon: DollarSign, label: "Donation" }
 ];
 
 export default function Navbar() {
+    const { pathname } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState(null);
 
@@ -52,7 +53,7 @@ export default function Navbar() {
         <nav className="bg-[#14649b]">
             {/* Desktop Navigation */}
             <div className="w-full md:w-[80%] md:mx-auto">
-                <div className="flex items-center justify-between h-16 mx-3 md:mx-0 z-50">
+                <div className="flex items-center justify-between mr-3 md:mx-0 z-50">
                     {/* Logo */}
                     <div className="w-32">
                         <Link to="/" className="">
@@ -62,12 +63,13 @@ export default function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:block">
-                        <div className="ml-10 flex items-center space-x-4">
+                        <div className="ml-10 flex items-center">
                             {menuItems.map(item => (
                                 <div key={item.to} className="relative group">
                                     <Link
                                         to={item.to}
-                                        className="flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors"
+                                        className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors ${pathname === item?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
+                                            }`}
                                     >
                                         <item.icon className="w-5 h-5" />
                                         {item.label}
@@ -79,7 +81,8 @@ export default function Navbar() {
                                                     <Link
                                                         key={subLink.to}
                                                         to={subLink.to}
-                                                        className="block px-4 py-2 text-white hover:bg-[#092f48] transition-colors"
+                                                        className={`block px-4 py-2 text-white hover:bg-[#092f48] transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
+                                                            }`}
                                                     >
                                                         {subLink.label}
                                                     </Link>
@@ -112,7 +115,8 @@ export default function Navbar() {
                     <div className="overflow-y-auto h-full max-h-screen px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#14649b]">
                         {menuItems.map(item => (
                             <div key={item.to}>
-                                <div className="flex items-center justify-between px-3 py-2 text-white hover:bg-blue-600 transition-colors"
+                                <div className={`flex items-center justify-between px-3 py-2 text-white hover:bg-blue-600 transition-colors ${pathname === item?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
+                                    }`}
                                     onClick={() => item.subLinks ? toggleSubMenu(item.label) : null}
                                 >
                                     <Link
@@ -134,7 +138,8 @@ export default function Navbar() {
                                             <Link
                                                 key={subLink.to}
                                                 to={subLink.to}
-                                                className="block px-4 py-2 text-white hover:bg-blue-600 rounded-md transition-colors"
+                                                className={`block px-4 py-2 text-white hover:bg-blue-600 rounded-md transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
+                                                    }`}
                                             >
                                                 {subLink.label}
                                             </Link>
@@ -149,7 +154,7 @@ export default function Navbar() {
                 {isOpen && (
                     <div
                         onClick={toggleMenu}
-                        className="fixed inset-0 bg-black opacity-50 md:hidden z-40"
+                        className="fixed inset-0 bg-black opacity-70 md:hidden z-40"
                     ></div>
                 )}
             </div>

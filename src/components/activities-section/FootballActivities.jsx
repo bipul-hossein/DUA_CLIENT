@@ -11,44 +11,38 @@ const FootballActivities = () => {
                 {/* Content Side */}
                 <div className="px-4 md:px-8 py-8">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0383d0]">
-                        Regular
-                        <span className="block"> Football practice</span>
+                        Weekly
+                        <span className="block"> Soccer Practice Information</span>
                     </h2>
 
                     <div className="space-y-4 text-gray-600">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do
-                            eiusmod tempor incididunt ut labore dolore magna aliqua. enim
-                            minim veniam, quis nostrud exercitation.
+                            South Lakes High School
                         </p>
 
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do
-                            eiusmod tempor incididunt ut labore dolore magna aliqua. enim
-                            minim veniam, quis nostrud exercitation. tempor incididunt ut
-                            labore dolore magna aliqua. enim minim veniam, quis nostrud
-                            exercitation.
+                            We will resume our weekly soccer practice in South Lakes High School Field soon!
+                        </p>
+
+                        <p>
+                            Location: 11400 South Lakes Dr, Reston, VA 20191
                         </p>
                     </div>
 
-                    <button className="mt-8 px-8 py-3 text-white rounded-md bg-[#14649b] hover:bg-[#092f48] transition-colors">
-                        See More
-                    </button>
                 </div>
                 <div className="">
-                    {/* image Side */}
+                    {/* Image Side */}
                     <div className="cursor-pointer">
                         <img
                             src="/football.jpg"
                             alt="Children's activities"
                             className="w-full h-full object-cover rounded-r-lg"
                         />
-
                     </div>
                 </div>
 
             </div>
-        </section >
+        </section>
     );
 };
 

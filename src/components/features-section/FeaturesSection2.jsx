@@ -4,19 +4,19 @@ const cards = [
   {
     icon: Megaphone,
     title: "VOLUNTEERING",
-    description: "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.",
+    description: "Join us in making a difference by volunteering your time and skills to support our initiatives and community events.",
     bgColor: "bg-zinc-800"
   },
   {
     icon: DollarSign,
     title: "DONATING",
-    description: "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.",
+    description: "Your generous donations help us fund our programs and reach more people in need, making a positive impact in the community.",
     bgColor: "bg-yellow-400"
   },
   {
     icon: User,
     title: "SUPPORTING",
-    description: "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.",
+    description: "Support our cause by spreading the word, participating in our events, and advocating for our mission.",
     bgColor: "bg-zinc-800"
   }
 ]
@@ -27,8 +27,7 @@ export default function GetInvolved() {
       <div className="text-center mb-6 md:mb-12">
         <h2 className="text-3xl font-bold mb-2 md:mb-4">GET INVOLVED</h2>
         <p className="max-w-2xl mx-auto">
-          All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
-          making this the first true generator on the Internet.
+          There are many ways to contribute to our cause and make a difference in the community. Explore the options below to find out how you can get involved.
         </p>
       </div>
 

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font: 13px / 1.85em 'Open Sans', Arial, Helvetice Neue, sans-serif;
+  font:  3em , Arial, Helvetice Neue, sans-serif;
   color: white;
   font-weight: 600;
   font-style: normal;
@@ -11,6 +11,7 @@ body {
   -webkit-text-size-adjust: 100%;
   background: url(/templatemo_pagebg.jpg) no-repeat #0d293b top center;
 }
+
 /* slider css start */
 .swiper-container {
   width: 100%;
@@ -37,13 +38,6 @@ body {
   background-color: red;
 }
 
-.swiper-button-next {
-  right: 10px;
-}
-
-.swiper-button-prev {
-  left: 10px;
-}
 
 /* slider css end */
 
