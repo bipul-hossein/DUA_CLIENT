@@ -1,12 +1,9 @@
 import { useState } from 'react'
-import { AlertCircle } from 'lucide-react'
-
-
+import { AlertCircle, CheckCircle } from 'lucide-react'
 
 export default function RegistrationForm() {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        fullName: '',
         address: '',
         phoneNumber: '',
         gender: '',
@@ -15,14 +12,14 @@ export default function RegistrationForm() {
 
     const [errors, setErrors] = useState({})
     const [isDraftSaved, setIsDraftSaved] = useState(true)
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         // Validate form
         const newErrors = {}
-        if (!formData.firstName) newErrors.firstName = 'First Name is required'
-        if (!formData.lastName) newErrors.lastName = 'Last Name is required'
+        if (!formData.fullName) newErrors.fullName = 'Full Name is required'
         if (!formData.address) newErrors.address = 'Address is required'
         if (!formData.phoneNumber) newErrors.phoneNumber = 'Phone Number is required'
         if (!formData.gender) newErrors.gender = 'Gender is required'
@@ -36,8 +33,14 @@ export default function RegistrationForm() {
 
         // Handle form submission
         console.log('Form submitted:', formData)
-    }
+        setIsSubmitted(true)
 
+        // Reset form after submission
+        setTimeout(() => {
+            handleClearForm()
+            setIsSubmitted(false)
+        }, 3000)
+    }
 
     const handleInputChange = (field, value) => {
         setFormData(prev => ({ ...prev, [field]: value }))
@@ -49,8 +52,7 @@ export default function RegistrationForm() {
 
     const handleClearForm = () => {
         setFormData({
-            firstName: '',
-            lastName: '',
+            fullName: '',
             address: '',
             phoneNumber: '',
             gender: '',
@@ -60,58 +62,42 @@ export default function RegistrationForm() {
     }
 
     return (
-        <div
-            className="min-h-screen"
-        >
-            <div className="max-w-2xl mx-auto py-12 md:py-20">
-                <div className="rounded-lg"
-                    style={{ backgroundImage: 'radial-gradient(ellipse closest-corner at center, white 30%, #9fbed1 100%)' }}
-                >
+        <div className="min-h-screen flex items-center justify-center">
+            <div className="max-w-2xl w-full p-6 md:py-12">
+                <div className="rounded-lg bg-gradient-to-tr from-white via-blue-100 to-[#9fbed1] p-8">
                     <form onSubmit={handleSubmit}>
-                        <h2 className="text-2xl font-medium text-black text-center py-3 md:py-6">  Registration Form</h2>
+                        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Registration Form</h2>
+
+                        {isSubmitted && (
+                            <div className="flex items-center justify-center text-green-500">
+                                <CheckCircle className="h-6 w-6 mr-2 animate-bounce" />
+                                <p className="font-medium text-lg">Form Submitted Successfully!</p>
+                            </div>
+                        )}
 
                         {/* Form Fields */}
-                        <div className="px-6 py-4 space-y-6">
-                            {/* First Name */}
-                            <div>
+                        <div className="space-y-6">
+                            {/* Full Name */}
+                            <div className="relative">
                                 <label className="block text-sm font-medium text-gray-700">
-                                    First Name <span className="text-red-500">*</span>
+                                    Full Name <span className="text-red-500">*</span>
                                 </label>
                                 <input
                                     type="text"
-                                    value={formData.firstName}
-                                    onChange={(e) => handleInputChange('firstName', e.target.value)}
-                                    className="flex-grow border border-black focus:ring-blue-500 focus:border-blue-500 p-2 w-full text-black"
+                                    value={formData.fullName}
+                                    onChange={(e) => handleInputChange('fullName', e.target.value)}
+                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
                                 />
-                                {errors.firstName && (
+                                {errors.fullName && (
                                     <div className="mt-1 flex items-center text-sm text-red-500">
                                         <AlertCircle className="h-4 w-4 mr-1" />
-                                        {errors.firstName}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Last Name */}
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">
-                                    Last Name <span className="text-red-500">*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    value={formData.lastName}
-                                    onChange={(e) => handleInputChange('lastName', e.target.value)}
-                                    className="flex-grow border border-black focus:ring-blue-500 focus:border-blue-500 p-2 w-full text-black"
-                                />
-                                {errors.lastName && (
-                                    <div className="mt-1 flex items-center text-sm text-red-500">
-                                        <AlertCircle className="h-4 w-4 mr-1" />
-                                        {errors.lastName}
+                                        {errors.fullName}
                                     </div>
                                 )}
                             </div>
 
                             {/* Address */}
-                            <div>
+                            <div className="relative">
                                 <label className="block text-sm font-medium text-gray-700">
                                     Address <span className="text-red-500">*</span>
                                 </label>
@@ -119,7 +105,7 @@ export default function RegistrationForm() {
                                     type="text"
                                     value={formData.address}
                                     onChange={(e) => handleInputChange('address', e.target.value)}
-                                    className="flex-grow border border-black focus:ring-blue-500 focus:border-blue-500 p-2 w-full text-black"
+                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
                                 />
                                 {errors.address && (
                                     <div className="mt-1 flex items-center text-sm text-red-500">
@@ -130,7 +116,7 @@ export default function RegistrationForm() {
                             </div>
 
                             {/* Phone Number */}
-                            <div>
+                            <div className="relative">
                                 <label className="block text-sm font-medium text-gray-700">
                                     Phone Number <span className="text-red-500">*</span>
                                 </label>
@@ -138,7 +124,7 @@ export default function RegistrationForm() {
                                     type="tel"
                                     value={formData.phoneNumber}
                                     onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                                    className="flex-grow border border-black focus:ring-blue-500 focus:border-blue-500 p-2 w-full text-black"
+                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
                                 />
                                 {errors.phoneNumber && (
                                     <div className="mt-1 flex items-center text-sm text-red-500">
@@ -149,7 +135,7 @@ export default function RegistrationForm() {
                             </div>
 
                             {/* Gender */}
-                            <div>
+                            <div className="relative">
                                 <label className="block text-sm font-medium text-gray-700">Gender</label>
                                 <div className="mt-2 space-y-2">
                                     {['Male', 'Female', 'Prefer not to say', 'Other'].map((option) => (
@@ -160,7 +146,7 @@ export default function RegistrationForm() {
                                                 value={option}
                                                 checked={formData.gender === option}
                                                 onChange={(e) => handleInputChange('gender', e.target.value)}
-                                                className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300"
+                                                className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 transition-transform transform hover:scale-105"
                                             />
                                             <label className="ml-2 block text-sm text-gray-700">{option}</label>
                                         </div>
@@ -175,7 +161,7 @@ export default function RegistrationForm() {
                             </div>
 
                             {/* Email */}
-                            <div>
+                            <div className="relative">
                                 <label className="block text-sm font-medium text-gray-700">
                                     Email <span className="text-red-500">*</span>
                                 </label>
@@ -183,7 +169,7 @@ export default function RegistrationForm() {
                                     type="email"
                                     value={formData.email}
                                     onChange={(e) => handleInputChange('email', e.target.value)}
-                                    className="flex-grow border border-black focus:ring-blue-500 focus:border-blue-500 p-2 w-full text-black"
+                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
                                 />
                                 {errors.email && (
                                     <div className="mt-1 flex items-center text-sm text-red-500">
@@ -195,17 +181,26 @@ export default function RegistrationForm() {
                         </div>
 
                         {/* Form Actions */}
-                        <div className="px-6 py-4 flex justify-between md:pb-8">
-                            <div className="flex space-x-2">
+                        <div className="pt-6 flex justify-between">
+                            <button
+                                type="button"
+                                onClick={handleClearForm}
+                                className="px-6 py-3 text-gray-700 bg-gray-200 rounded-md shadow-sm hover:bg-gray-300 transition-transform transform hover:scale-105"
+                            >
+                                Clear
+                            </button>
 
-                                <button
-                                    type="submit"
-                                    className="px-8 py-3 text-white rounded-md bg-[#14649b] hover:bg-[#092f48] transition-transform"
-                                >
-                                    Submit
-                                </button>
-                            </div>
+                            <button
+                                type="submit"
+                                className="px-6 py-3 text-white bg-[#14649b] rounded-md shadow-sm hover:bg-[#092f48] transition-transform transform hover:scale-105"
+                            >
+                                Next
+                            </button>
+                        </div>
 
+                        {/* Auto-Save Indicator */}
+                        <div className="pt-4 text-sm text-gray-500">
+                            {isDraftSaved ? 'All changes saved' : 'Saving...'}
                         </div>
                     </form>
                 </div>
@@ -213,4 +208,3 @@ export default function RegistrationForm() {
         </div>
     )
 }
-

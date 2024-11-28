@@ -2,10 +2,12 @@
 
 export default function ContactUs() {
     return (
-        <div className="min-h-screen" style={{ backgroundImage: 'url(/path-to-your-image.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="max-w-7xl mx-auto py-12 md:py-20">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg py-6">
-                    <div className="w-[50%] mx-auto pb-20 pt-10">
+        <div
+            className="min-h-screen "
+            style={{ backgroundImage: 'url(/path-to-your-image.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="mx-auto py-12 md:py-20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg py-6 px-2 md:px-8">
+                    <div className="w-full md:w-[50%] mx-auto pb-20 pt-10">
 
                         <form className="space-y-4">
                             <div className="space-y-4">

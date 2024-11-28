@@ -80,10 +80,7 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="mt-16 pt-8 border-t border-gray-200 text-center text-white text-sm">
                     <p>
-                        Copyright ©2024 All rights reserved | This template is made with ❤️ by{' '}
-                        <Link to="https://colorlib.com" className="text-white hover:text-blue-700">
-                            DULLES UNITED
-                        </Link>
+                        Copyright ©2024 All rights reserved DULLES UNITED.
                     </p>
                 </div>
             </div>

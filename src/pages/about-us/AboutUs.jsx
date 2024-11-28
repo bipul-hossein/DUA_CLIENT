@@ -3,7 +3,7 @@ export default function AboutUs() {
         <div className="min-h-screen" style={{ backgroundImage: 'url(/path-to-your-image.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="max-w-7xl mx-auto py-12 md:py-20">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg py-6 ">
-                    <div className="px-4 md:px-8">
+                    <div className="px-2 md:px-8">
                         {/* <div className="grid md:grid-cols-2 gap-8 items-center"> */}
                         {/* Logo Column */}
                         {/* <div className="flex justify-center">
@@ -18,11 +18,11 @@ export default function AboutUs() {
 
                         {/* Content Column */}
                         <div className="text-white">
-                            <h1 className="text-3xl font-bold text-blue-100">
+                            <h1 className="text-xl md:text-3xl font-bold text-blue-100">
                                 DULLES UNITED ASSOCIATION
                             </h1>
 
-                            <h2 className="text-xl text-blue-200">
+                            <h2 className="text-lg font-semibold text-blue-200">
                                 Non-Profit Organization serving in Northern Virginia
                             </h2>
 

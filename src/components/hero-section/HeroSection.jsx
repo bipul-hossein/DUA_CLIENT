@@ -1,9 +1,75 @@
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+// import 'swiper/css/effect-fade';
+// import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+// const images = [
+//     "/banner/1.jpg",
+//     "/banner/2.jpg",
+//     "/banner/3.jpg",
+//     "/banner/4.jpg",
+// ];
+
+// export default function HeroSection() {
+//     return (
+//         <div className="relative swiper-container container mx-auto">
+//             <Swiper
+//                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
+//                 effect="fade"
+//                 spaceBetween={0}
+//                 slidesPerView={1}
+//                 navigation={{
+//                     prevEl: '.swiper-button-prev',
+//                     nextEl: '.swiper-button-next',
+//                 }}
+//                 pagination={{ clickable: true }}
+//                 autoplay={{ delay: 2500, disableOnInteraction: false }}
+//                 speed={3000}
+//                 loop={true}
+//                 className='swiper'
+//             >
+//                 {images.map((image, index) => (
+//                     <SwiperSlide key={index}>
+//                         <div className="relative">
+//                             <img
+//                                 src={image}
+//                                 alt={`Slide ${index + 1}`}
+//                                 className="object-cover w-full h-full"
+//                             />
+//                         </div>
+//                     </SwiperSlide>
+//                 ))}
+//             </Swiper>
+
+//             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+//                 <h2 className="text-2xl md:text-5xl font-bold mb-2">
+//                     Welcome to DULLES UNITED ASSOCIATION
+//                 </h2>
+//                 <h1 className="text-xl md:text-2xl font-light md:font-semibold mb-6">
+//                     Non-Profit Organization serving in Northern Virginia
+//                 </h1>
+//                 <p className='text-lg hidden md:inline-flex'>
+//                     Dulles United Association is a 501(c3) non-profit organization serving in Northern Virginia to promote and provide social & sports opportunities to individuals. Our vision is to support our community by organizing various sports and social events. We are committed to ensure that each of our member are treated with equal opportunity regardless of their ethnicity, religion and gender.
+//                 </p>
+//             </div>
+
+//             <div className="swiper-pagination pagination-container">
+//                 <div className="pagination-dots flex space-x-2"></div>
+//             </div>
+//         </div>
+//     );
+// }
+
+
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import 'swiper/css/effect-fade';
 
 const images = [
     "/banner/1.jpg",
@@ -16,7 +82,8 @@ export default function HeroSection() {
     return (
         <div className="relative swiper-container container mx-auto">
             <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
+                modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                effect="fade"
                 spaceBetween={0}
                 slidesPerView={1}
                 navigation={{
@@ -31,7 +98,7 @@ export default function HeroSection() {
             >
                 {images.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <div className="relative image-container">
+                        <div className="relative z-0">
                             <img
                                 src={image}
                                 alt={`Slide ${index + 1}`}
@@ -42,7 +109,8 @@ export default function HeroSection() {
                 ))}
             </Swiper>
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 z-10">
+            {/* Text Section with z-index and pointer-events-none */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 z-10 pointer-events-none">
                 <h2 className="text-2xl md:text-5xl font-bold mb-2">
                     Welcome to DULLES UNITED ASSOCIATION
                 </h2>
@@ -50,13 +118,15 @@ export default function HeroSection() {
                     Non-Profit Organization serving in Northern Virginia
                 </h1>
                 <p className='text-lg hidden md:inline-flex'>
-                    Dulles United Association is a 501(c3) non-profit organization serving in Northern Virginia to promote and provide social & sports opportunities to individuals. Our vision is to support our community by organizing various sports and social events. We are committed to ensure that each of our member are treated with equal opportunity regardless of their ethnicity, religion and gender.
+                    Dulles United Association is a 501(c3) non-profit organization serving in Northern Virginia to promote and provide social & sports opportunities to individuals. Our vision is to support our community by organizing various sports and social events. We are committed to ensuring that each of our members is treated with equal opportunity regardless of their ethnicity, religion, and gender.
                 </p>
             </div>
 
-            <div className="swiper-pagination pagination-container">
+            {/* Pagination and Navigation Controls with pointer-events-auto */}
+            <div className="swiper-pagination pagination-container z-10 pointer-events-auto">
                 <div className="pagination-dots flex space-x-2"></div>
             </div>
         </div>
     );
 }
+

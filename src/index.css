@@ -12,6 +12,11 @@ body {
   background: url(/templatemo_pagebg.jpg) no-repeat #0d293b top center;
 }
 
+.icon-color {
+  color: #a1c3da;  /* Change this to your desired color */
+}
+
+
 /* slider css start */
 .swiper-container {
   width: 100%;

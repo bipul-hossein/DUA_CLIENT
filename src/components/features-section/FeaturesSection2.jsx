@@ -23,7 +23,7 @@ const cards = [
 
 export default function GetInvolved() {
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
+    <section className="py-16 px-2 md:px-0 max-w-7xl mx-auto">
       <div className="text-center mb-6 md:mb-12">
         <h2 className="text-3xl font-bold mb-2 md:mb-4">GET INVOLVED</h2>
         <p className="max-w-2xl mx-auto">
@@ -43,7 +43,7 @@ export default function GetInvolved() {
             >
               <div className="p-4 md:p-8 flex flex-col items-center w-full">
                 <Icon className="w-12 h-12 mb-4 text-[#0383d0]" />
-                <h3 className="text-base md:text-xl font-bold mb-4 text-[#0383d0]">{card.title}</h3>
+                <h3 className="text-sm md:text-xl font-bold mb-4 text-[#0383d0]">{card.title}</h3>
               </div>
 
               <div className={`${card.bgColor} p-6 w-full mt-auto hidden md:inline-flex`}>
