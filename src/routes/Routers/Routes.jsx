@@ -9,6 +9,7 @@ import Registration from '../../pages/badminton/registration/Registration';
 import Bylaws from '../../pages/badminton/bylaws/Bylaws';
 import WaiverForm from '../../pages/badminton/waiver-form/WaiverForm';
 import Gallery from '../../pages/badminton/gallery/Gallery';
+import PaymentMethod from '../../pages/badminton/registration/PaymentMethod';
 
 
 const routes = createBrowserRouter([
@@ -40,6 +41,10 @@ const routes = createBrowserRouter([
             {
                 path: '/badminton/registration',
                 element: <Registration />
+            },
+            {
+                path: '/badminton/registration/payment-method',
+                element: <PaymentMethod />
             },
             {
                 path: '/badminton/bylaws',

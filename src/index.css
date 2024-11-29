@@ -12,10 +12,6 @@ body {
   background: url(/templatemo_pagebg.jpg) no-repeat #0d293b top center;
 }
 
-.icon-color {
-  color: #a1c3da;  /* Change this to your desired color */
-}
-
 
 /* slider css start */
 .swiper-container {
@@ -65,4 +61,43 @@ body {
       transform: translateX(-100%);
       transition: transform 500ms ease-in-out;
   }
+}
+
+
+
+
+
+/* jubayer vai */
+
+
+#member-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-in-out;
+}
+
+fieldset {
+  border: 2px solid #13679f;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+
+legend {
+  background-color: #13679f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+}
+
+
+#payment-info fieldset {
+  border: 2px solid #13679f;
+  /* max-width: 600px; */
+  margin: 0 auto;
 }
