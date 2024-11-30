@@ -13,15 +13,6 @@ export const RegistrationProvider = ({ children }) => {
     },
     paymentMethod: '',
   });
-  //   const [formData, setFormData] = useState({
-  //     fullName: '',
-  //     address: '',
-  //     phoneNumber: '',
-  //     gender: '',
-  //     email: ''
-  // });
-  console.log(formDataContext, "lskajfldkajslkdfjaskl");
-
 
   return (
     <RegistrationContext.Provider value={[formDataContext, setFormDataContext]}>

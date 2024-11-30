@@ -65,10 +65,10 @@ export default function RegistrationForm() {
 
     return (
 
-        <div className="min-h-screen flex items-center justify-center mt-12">
-            <div className="md:py-12 rounded-lg bg-gradient-to-tr from-white via-blue-100 to-[#9fbed1]">
-                <div className="mb-8 mx-20">
-                    <h1 className="text-2xl md:text-4xl font-bold text-gray-700 mb-2">
+        <div className="min-h-screen flex items-center justify-center md:mt-12">
+            <div className="md:py-12 md:rounded-lg bg-gradient-to-tr from-white via-blue-100 to-[#9fbed1]">
+                <div className="mb-8 mx-2 md:mx-20 mt-2">
+                    <h1 className="text-xl md:text-4xl font-bold text-gray-700 mb-2">
                         WELCOME To DULLES UNITED Association Membership Registration
                     </h1>
                     <p className="text-sm text-gray-600">
@@ -147,6 +147,7 @@ export default function RegistrationForm() {
                                 onChange={(e) => handleInputChange('gender', e.target.value)}
                                 className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
                             >
+                                <option value="" disabled>Select your gender</option>
                                 {['Male', 'Female', 'Prefer not to say', 'Other'].map((option) => (
                                     <option key={option} value={option}>{option}</option>
                                 ))}

@@ -24,14 +24,14 @@ export default function CardPaymentForm() {
     }
 
     return (
-        <div className="min-h-screen">
-            <div className="max-w-lg mx-auto space-y-6 bg-white p-4 md:p-6 rounded-md">
+        <div className="">
+            <div className="w-full mx-auto space-y-6 bg-white p-4 md:p-6 rounded-md">
                 <h1 className="text-xl font-semibold text-gray-900">Pay with Card</h1>
 
                 <div className="mb-6">
                     <p className="text-sm font-medium text-gray-700 mb-2">Cards Accepted :</p>
                     <div className="flex gap-2">
-                        <div className="w-12 h-8 relative">
+                        <div className="w-12 h-8">
                             <img
                                 src="/placeholder.svg"
                                 alt="PayPal"
@@ -39,7 +39,7 @@ export default function CardPaymentForm() {
                                 className="object-contain"
                             />
                         </div>
-                        <div className="w-12 h-8 relative">
+                        <div className="w-12 h-8">
                             <img
                                 src="/placeholder.svg"
                                 alt="Mastercard"
@@ -47,7 +47,7 @@ export default function CardPaymentForm() {
                                 className="object-contain"
                             />
                         </div>
-                        <div className="w-12 h-8 relative">
+                        <div className="w-12 h-8">
                             <img
                                 src="/placeholder.svg"
                                 alt="Visa"
@@ -55,7 +55,7 @@ export default function CardPaymentForm() {
                                 className="object-contain"
                             />
                         </div>
-                        <div className="w-12 h-8 relative">
+                        <div className="w-12 h-8">
                             <img
                                 src="/placeholder.svg"
                                 alt="Discover"

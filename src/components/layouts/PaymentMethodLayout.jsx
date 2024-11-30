@@ -28,7 +28,7 @@ const PaymentMethodLayout = () => {
     };
 
     return (
-        <div id="payment-info" className='my-12 '>
+        <div id="payment-info" className='my-12 mx-2 md:mx-0'>
             <fieldset id="payment-details">
                 <legend>Payment Information</legend>
 

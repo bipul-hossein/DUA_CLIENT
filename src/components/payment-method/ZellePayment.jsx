@@ -6,8 +6,8 @@ export default function ZellePayment() {
   }
 
   return (
-    <div className="min-h-screen ">
-      <div className="max-w-lg mx-auto space-y-6 bg-white p-4 md:p-6 rounded-md">
+    <div className="">
+      <div className="mx-auto space-y-6 bg-white p-4 md:p-6 rounded-md">
         <h1 className="text-xl font-semibold text-gray-900">Zelle Payment</h1>
 
         <p className="text-gray-600 text-sm md:text-base">
