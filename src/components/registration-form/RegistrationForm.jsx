@@ -143,11 +143,10 @@ export default function RegistrationForm() {
                             <label className="block text-base mb-2 font-medium text-gray-700">Gender</label>
                             <select
                                 name="gender"
-                                value={localData.gender}
+                                defaultValue={localData.gender}
                                 onChange={(e) => handleInputChange('gender', e.target.value)}
                                 className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
                             >
-                                <option value="" disabled>Select your gender</option>
                                 {['Male', 'Female', 'Prefer not to say', 'Other'].map((option) => (
                                     <option key={option} value={option}>{option}</option>
                                 ))}
@@ -178,29 +177,29 @@ export default function RegistrationForm() {
                                 </div>
                             )}
                         </div>
+                        <div className="pt-4 flex justify-end">
+                            <button
+                                type="submit"
+                                className="px-6 py-3 text-white bg-[#14649b] rounded-md shadow-sm"
+                                style={{
+                                    transition: 'transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.transform = 'translateY(-3px)';
+                                    e.target.style.backgroundColor = '#0d4a70';
+                                    e.target.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.transform = 'translateY(0)';
+                                    e.target.style.backgroundColor = '#14649b';
+                                    e.target.style.boxShadow = 'none';
+                                }}
+                            >
+                                Next
+                            </button>
+                        </div>
                     </fieldset>
-                    {/* Form Actions */}
-                    <div className="pt-4 flex justify-end">
-                        <button
-                            type="submit"
-                            className="px-6 py-3 text-white bg-[#14649b] rounded-md shadow-sm"
-                            style={{
-                                transition: 'transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease',
-                            }}
-                            onMouseEnter={(e) => {
-                                e.target.style.transform = 'translateY(-3px)';
-                                e.target.style.backgroundColor = '#0d4a70';
-                                e.target.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.target.style.transform = 'translateY(0)';
-                                e.target.style.backgroundColor = '#14649b';
-                                e.target.style.boxShadow = 'none';
-                            }}
-                        >
-                            Next
-                        </button>
-                    </div>
+
                 </form>
 
             </div>

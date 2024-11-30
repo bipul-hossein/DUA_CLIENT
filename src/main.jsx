@@ -10,6 +10,6 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RegistrationProvider>
       <RouterProvider router={routes} />
-    </RegistrationProvider>,
-  </StrictMode>,
+    </RegistrationProvider>
+  </StrictMode>
 )
