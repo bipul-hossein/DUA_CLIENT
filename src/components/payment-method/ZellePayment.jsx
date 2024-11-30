@@ -1,9 +1,14 @@
+import React, { useState } from 'react';
+
 export default function ZellePayment() {
+  const [isPending, setIsPending] = useState(false);
+
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission
-    console.log('Payment submitted')
-  }
+    console.log('Payment submitted');
+    setIsPending(true);  // Set the pending state to true on form submission
+  };
 
   return (
     <div className="">
@@ -29,6 +34,9 @@ export default function ZellePayment() {
           <p className="text-sm text-gray-500 text-center">
             Scan this QR code with your Zelle app to send the payment.
           </p>
+          <p className="text-sm text-gray-500 text-center">
+            After you complete your payment, click the "Check Request" button and provide your full name, email, and transaction ID. Then, click the "Payment Complete" button. The admin will respond shortly.
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="pt-4">
@@ -39,8 +47,13 @@ export default function ZellePayment() {
             Submit
           </button>
         </form>
+
+        {isPending && (
+          <div className="mt-4 text-center text-green-700">
+            Payment request pending. An admin will confirm your request later.
+          </div>
+        )}
       </div>
     </div>
-  )
+  );
 }
-

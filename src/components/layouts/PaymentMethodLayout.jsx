@@ -3,11 +3,17 @@ import { RegistrationContext } from '../../contextsApi/RegistrationContext';
 import Zelle from '../payment-method/ZellePayment';
 import CardPaymentForm from '../payment-method/CardPaymentForm';
 import { Link } from 'react-router-dom';
+import ButtonPayment from '../share/button/ButtonPayment';
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+const stripePromise = loadStripe('your-publishable-key-here');
+
 
 
 const PaymentMethodLayout = () => {
     const [formDataContext, setFormDataContext] = useContext(RegistrationContext);
-    const [selectedMethod, setSelectedMethod] = useState(formDataContext.paymentMethod || 'zelle');
+    const [selectedMethod, setSelectedMethod] = useState(formDataContext.paymentMethod || 'card');
 
 
     useEffect(() => {
@@ -28,53 +34,45 @@ const PaymentMethodLayout = () => {
     };
 
     return (
-        <div id="payment-info" className='my-12 mx-2 md:mx-0'>
-            <fieldset id="payment-details">
-                <legend>Payment Information</legend>
+        <div
+            className='mt-6 md:my-12 mx-2 flex justify-center'>
+            <fieldset
+                className="border-2 border-[#13679f] rounded mb-5 py-2.5 px-3 md:px-5 w-[34rem]">
+                <legend
+                    className="bg-[#13679f] text-white py-1 px-2.5 rounded font-bold w-full md:text-2xl">Payment Information</legend>
 
+                {/* Payment Switching button */}
                 <div className='flex justify-center'>
                     <div className='flex gap-2'>
                         <button
-                            value="zelle"
-                            onClick={() => handleChange('zelle')}
-                            className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-[#14649b] text-white' : 'bg-gray-200 text-gray-700'}`}
-                        >
-                            Zelle
-                        </button>
-                        <button
                             value="card"
                             onClick={() => handleChange('card')}
-                            className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-[#14649b] text-white' : 'bg-gray-200 text-gray-700'}`}
+                            className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
                         >
                             Card
+                        </button>
+                        <button
+                            value="zelle"
+                            onClick={() => handleChange('zelle')}
+                            className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
+                        >
+                            Zelle
                         </button>
                     </div>
                 </div>
 
                 <div className='flex justify-center mt-4'>
-                    {selectedMethod === 'card' ? <CardPaymentForm /> : <Zelle />}
+                    {selectedMethod === 'card' ?
+                        <Elements stripe={stripePromise}>
+                            <CardPaymentForm />
+                        </Elements>
+                        :
+                        <Zelle />}
                 </div>
 
                 <div className="pt-4 flex justify-end">
-
-                    <Link
-                        to="/badminton/registration"
-                        className="px-6 py-3 text-white bg-[#14649b] rounded-md shadow-sm"
-                        style={{
-                            transition: 'transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease',
-                        }}
-                        onMouseEnter={(e) => {
-                            e.target.style.transform = 'translateY(-3px)';
-                            e.target.style.backgroundColor = '#0d4a70';
-                            e.target.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.backgroundColor = '#14649b';
-                            e.target.style.boxShadow = 'none';
-                        }}
-                    >
-                        Back
+                    <Link to="/badminton/registration">
+                        <ButtonPayment title={"Back"} />
                     </Link>
                 </div>
             </fieldset>
@@ -84,3 +82,4 @@ const PaymentMethodLayout = () => {
 };
 
 export default PaymentMethodLayout;
+
