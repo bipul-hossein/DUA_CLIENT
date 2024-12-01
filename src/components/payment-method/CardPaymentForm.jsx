@@ -1,58 +1,46 @@
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import { CreditCard, IdCard } from 'lucide-react';
 import { RegistrationContext } from '../../contextsApi/RegistrationContext';
-
-const getCardType = (number) => {
-    const cardPatterns = {
-        visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
-        mastercard: /^5[1-5][0-9]{14}$/,
-        amex: /^3[47][0-9]{13}$/,
-        discover: /^6(?:011|5[0-9]{2})[0-9]{12}$/,
-    };
-
-    for (let [card, pattern] of Object.entries(cardPatterns)) {
-        if (pattern.test(number)) {
-            return card;
-        }
-    }
-    return '';
-};
 
 export default function CardPaymentForm() {
     const [formDataContext, setFormDataContext] = useContext(RegistrationContext);
-    console.log(formDataContext.teamFee, "teamFee",);
     const stripe = useStripe();
     const elements = useElements();
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
-        defaultValues: {
-            ...formDataContext.personalInfo,  // Use the personal info if available
-            payAmount: formDataContext.teamFee,  // Fallback default value for payAmount
-        }
-    });
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [localData, setLocalData] = useState({
-        name: '',
+        fullName: '',
+        email: '',
         cardNumber: '',
         expirationMonth: '',
         expirationYear: '',
         cvv: '',
-        payAmount: ''  // Added payAmount to local data
+        payAmount: '',
+        billingAddress: {
+            street: '',
+            city: '',
+            state: '',
+            zip: '',
+        }
     });
-    const [cardType, setCardType] = useState('');
 
     const onSubmit = async (data) => {
         if (!stripe || !elements) {
             return;
         }
-
         const cardElement = elements.getElement(CardElement);
-
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card: cardElement,
             billing_details: {
-                name: localData.name,
+                name: localData.fullName,
+                email: localData.email,
+                address: {
+                    line1: localData.billingAddress.street,
+                    city: localData.billingAddress.city,
+                    state: localData.billingAddress.state,
+                    postal_code: localData.billingAddress.zip,
+                },
             },
         });
 
@@ -61,7 +49,6 @@ export default function CardPaymentForm() {
         } else {
             console.log('Payment method:', paymentMethod);
         }
-
         reset();
     };
 
@@ -71,188 +58,176 @@ export default function CardPaymentForm() {
             ...prev,
             [name]: value
         }));
-
-        if (name === 'cardNumber') {
-            setCardType(getCardType(value));
-        }
     };
 
-    const cardIcons = {
-        visa: <IdCard />,
-        mastercard: <CreditCard />,
-        amex: <IdCard />,
-        discover: <IdCard />,
+    const handleBillingChange = (e) => {
+        const { name, value } = e.target;
+        setLocalData(prev => ({
+            ...prev,
+            billingAddress: {
+                ...prev.billingAddress,
+                [name]: value
+            }
+        }));
     };
 
     return (
         <div className="">
-            <div className="w-full mx-auto space-y-3 md:space-y-6 p-4 md:p-6 rounded-md">
+            <div className="w-full max-w-lg mx-auto space-y-3 md:space-y-6 p-4 md:p-6 rounded-md">
                 <h1 className="text-xl font-semibold text-gray-900">Pay with Card</h1>
-
-                {/* <div className="mb-6">
-                    <p className="text-sm font-medium text-gray-700 mb-2">Cards Accepted :</p>
-                    <div className="flex gap-2">
-                        <div className="w-12 h-8">
-                            <img src="/icons/visa.svg" alt="Visa" fill className="object-contain" />
-                        </div>
-                        <div className="w-12 h-8">
-                            <img src="/icons/mastercard.svg" alt="Mastercard" fill className="object-contain" />
-                        </div>
-                        <div className="w-12 h-8">
-                            <img src="/icons/amex.svg" alt="Amex" fill className="object-contain" />
-                        </div>
-                        <div className="w-12 h-8">
-                            <img src="/icons/discover.svg" alt="Discover" fill className="object-contain" />
-                        </div>
-                    </div>
-                </div> */}
-
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 md:space-y-4">
                     <div className="relative">
                         <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700 mb-1">
                             Credit Card Number :
                         </label>
-                        <input
-                            type="text"
+                        <CardElement
                             id="cardNumber"
                             name="cardNumber"
-                            value={localData.cardNumber}
-                            {...register('cardNumber', { required: 'Card Number is required' })}
-                            onChange={handleChange}
                             className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
-                            placeholder="1111 3333 5555 7777"
-                            maxLength={19}
                         />
-                        {errors.cardNumber && (
-                            <div className="mt-1 text-sm text-red-500">
-                                {errors.cardNumber.message}
-                            </div>
-                        )}
-                        {cardType && (
-                            <img
-                                src={cardIcons[cardType]}
-                                alt={cardType}
-                                className="absolute top-9 right-3 h-6 w-6"
-                            />
-                        )}
                     </div>
 
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                            Name on card :
+                        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                            Full Name :
                         </label>
                         <input
                             type="text"
-                            id="name"
-                            name="name"
-                            value={localData.name}
-                            {...register('name', { required: 'Name is required' })}
+                            id="fullName"
+                            name="fullName"
+                            value={localData.fullName}
+                            {...register('fullName', { required: 'Full Name is required' })}
                             onChange={handleChange}
                             className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
                             placeholder="Terry B."
                         />
-                        {errors.name && (
+                        {errors.fullName && (
                             <div className="mt-1 text-sm text-red-500">
-                                {errors.name.message}
+                                {errors.fullName.message}
                             </div>
                         )}
                     </div>
 
                     <div>
-                        <label htmlFor="expirationMonth" className="block text-sm font-medium text-gray-700 mb-1">
-                            Expiration Month :
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                            Email :
                         </label>
                         <input
-                            type="text"
-                            id="expirationMonth"
-                            name="expirationMonth"
-                            value={localData.expirationMonth}
-                            {...register('expirationMonth', { required: 'Expiration Month is required' })}
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={localData.email}
+                            {...register('email', { required: 'Email is required' })}
                             onChange={handleChange}
                             className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
-                            placeholder="March"
+                            placeholder="terry@example.com"
                         />
-                        {errors.expirationMonth && (
+                        {errors.email && (
                             <div className="mt-1 text-sm text-red-500">
-                                {errors.expirationMonth.message}
+                                {errors.email.message}
                             </div>
                         )}
-                    </div>
-
-                    <div className="flex gap-4">
-                        <div className="flex-1">
-                            <label htmlFor="expirationYear" className="block text-sm font-medium text-gray-700 mb-1">
-                                Exp. Year :
-                            </label>
-                            <input
-                                type="text"
-                                id="expirationYear"
-                                name="expirationYear"
-                                value={localData.expirationYear}
-                                {...register('expirationYear', { required: 'Expiration Year is required' })}
-                                onChange={handleChange}
-                                className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
-                                placeholder="2030"
-                                maxLength={4}
-                            />
-                            {errors.expirationYear && (
-                                <div className="mt-1 text-sm text-red-500">
-                                    {errors.expirationYear.message}
-                                </div>
-                            )}
-                        </div>
-
-                        <div className="flex-1">
-                            <label htmlFor="cvv" className="block text-sm font-medium text-gray-700 mb-1">
-                                CVV :
-                            </label>
-                            <input
-                                type="text"
-                                id="cvv"
-                                name="cvv"
-                                value={localData.cvv}
-                                {...register('cvv', { required: 'CVV is required' })}
-                                onChange={handleChange}
-                                className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
-                                placeholder="123"
-                                maxLength={4}
-                            />
-                            {errors.cvv && (
-                                <div className="mt-1 text-sm text-red-500">
-                                    {errors.cvv.message}
-                                </div>
-                            )}
-                        </div>
                     </div>
 
                     <div>
-                        <label htmlFor="payAmount" className="block text-sm font-medium text-gray-700 mb-1">
-                            Payment Amount :
+                        <label htmlFor="billingAddress" className="block text-sm font-medium text-gray-700 mb-1">
+                            Billing Address :
                         </label>
-                        <input
-                            type="text"
-                            id="payAmount"
-                            name="payAmount"
-                            {...register('payAmount', { required: 'Payment Amount is required' })}
-                            onChange={handleChange}
-                            className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
-                            placeholder="$100.00"
-                            disabled  // Disable the field
-                        />
-                        {errors.payAmount && (
-                            <div className="mt-1 text-sm text-red-500">
-                                {errors.payAmount.message}
+                        <div className="flex gap-4">
+                            <div className="w-full md:w-1/2">
+                                <label htmlFor="street" className="block text-sm font-medium text-gray-700">
+                                    Street :
+                                </label>
+                                <input
+                                    type="text"
+                                    id="street"
+                                    name="street"
+                                    value={localData.billingAddress.street}
+                                    {...register('street', { required: 'Street is required' })}
+                                    onChange={handleBillingChange}
+                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    placeholder="123 Main St"
+                                />
+                                {errors.street && (
+                                    <div className="mt-1 text-sm text-red-500">
+                                        {errors.street.message}
+                                    </div>
+                                )}
                             </div>
-                        )}
-                    </div>
 
+                            <div className="w-full md:w-1/2">
+                                <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                                    City :
+                                </label>
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    value={localData.billingAddress.city}
+                                    {...register('city', { required: 'City is required' })}
+                                    onChange={handleBillingChange}
+                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    placeholder="Anytown"
+                                />
+                                {errors.city && (
+                                    <div className="mt-1 text-sm text-red-500">
+                                        {errors.city.message}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        <div className="flex gap-4 mt-4">
+                            <div className="w-full md:w-1/2">
+                                <label htmlFor="state" className="block text-sm font-medium text-gray-700">
+                                    State :
+                                </label>
+                                <input
+                                    type="text"
+                                    id="state"
+                                    name="state"
+                                    value={localData.billingAddress.state}
+                                    {...register('state', { required: 'State is required' })}
+                                    onChange={handleBillingChange}
+                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    placeholder="Anystate"
+                                />
+                                {errors.state && (
+                                    <div className="mt-1 text-sm text-red-500">
+                                        {errors.state.message}
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="w-full md:w-1/2">
+                                <label htmlFor="zip" className="block text-sm font-medium text-gray-700">
+                                    Zip Code :
+                                </label>
+                                <input
+                                    type="text"
+                                    id="zip"
+                                    name="zip"
+                                    value={localData.billingAddress.zip}
+                                    {...register('zip', { required: 'Zip Code is required' })}
+                                    onChange={handleBillingChange}
+                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    placeholder="12345"
+                                />
+                                {errors.zip && (
+                                    <div className="mt-1 text-sm text-red-500">
+                                        {errors.zip.message}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
 
                     <button
                         type="submit"
                         className="w-full bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
                         disabled={!stripe || !elements}
                     >
-                        Submit
+                        pay ${formDataContext?.teamFee || 0}
                     </button>
                 </form>
             </div>

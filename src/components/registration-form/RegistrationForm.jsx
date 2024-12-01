@@ -64,7 +64,7 @@ export default function RegistrationForm() {
 
                         <div className='flex justify-between'>
                             {/* Team Name */}
-                            <div className="mb-2 w-[55%]">
+                            <div className="mb-2 w-[62%]">
                                 <label className="block text-base mb-1 font-medium text-gray-700">
                                     Team Name <span className="text-red-500">*</span>
                                 </label>
@@ -83,7 +83,7 @@ export default function RegistrationForm() {
                             </div>
 
                             {/* Division */}
-                            <div className="mb-2 w-[40%]">
+                            <div className="mb-2 w-[35%]">
                                 <label className="block text-base mb-1 font-medium text-gray-700">
                                     Division <span className="text-red-500">*</span>
                                 </label>
@@ -93,9 +93,9 @@ export default function RegistrationForm() {
                                     className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
                                 >
                                     <option value="" disabled>Select your division</option>
-                                    <option value="beginner">Beginner - 120 dollars</option>
-                                    <option value="intermediate">Intermediate - 150 dollars</option>
-                                    <option value="open">Open - 200 dollars</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="open">Open</option>
                                 </select>
                                 {errors.division && (
                                     <div className="mt-1 flex items-center text-sm text-red-500">
@@ -228,12 +228,6 @@ export default function RegistrationForm() {
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
                         {/* Team Fee */}
                         <div className="mb-2">
                             <label className="block text-base mb-1 font-medium text-gray-700">
@@ -241,11 +235,12 @@ export default function RegistrationForm() {
                             </label>
                             <input
                                 type="text"
-                                value={`${teamFee} dollars`}
+                                value={`$${teamFee}`}
                                 readOnly
                                 className="flex-grow border border-gray-300 p-2 md:p-3 w-full rounded-md shadow-sm bg-gray-100 text-black"
                             />
                         </div>
+
 
                         <div className="pt-2 md:pt-4 flex justify-end">
                             <ButtonPayment title={"Next"} />

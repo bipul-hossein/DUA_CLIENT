@@ -32,7 +32,7 @@ const PaymentReceipt = () => {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="flex justify-center items-center md:min-h-screen bg-gray-100">
             <div className="max-w-full p-4 bg-white shadow-md rounded">
                 <div className="receipt-container w-full p-6 bg-white shadow-md rounded" id="receipt" style={{ fontSize: '12px' }}>
                     <div className="receipt-header text-center mb-6">

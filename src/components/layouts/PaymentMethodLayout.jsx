@@ -48,14 +48,14 @@ const PaymentMethodLayout = () => {
                             <button
                                 value="card"
                                 onClick={() => handleChange('card')}
-                                className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
+                                className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-[#14649b] text-white' : 'bg-gray-200 text-gray-700'}`}
                             >
                                 Card
                             </button>
                             <button
                                 value="zelle"
                                 onClick={() => handleChange('zelle')}
-                                className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
+                                className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-[#14649b] text-white' : 'bg-gray-200 text-gray-700'}`}
                             >
                                 Zelle
                             </button>
