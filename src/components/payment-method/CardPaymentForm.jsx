@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { CreditCard, IdCard } from 'lucide-react';
+import { RegistrationContext } from '../../contextsApi/RegistrationContext';
 
 const getCardType = (number) => {
     const cardPatterns = {
@@ -20,16 +21,23 @@ const getCardType = (number) => {
 };
 
 export default function CardPaymentForm() {
+    const [formDataContext, setFormDataContext] = useContext(RegistrationContext);
+    console.log(formDataContext.teamFee, "teamFee",);
     const stripe = useStripe();
     const elements = useElements();
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+        defaultValues: {
+            ...formDataContext.personalInfo,  // Use the personal info if available
+            payAmount: formDataContext.teamFee,  // Fallback default value for payAmount
+        }
+    });
     const [localData, setLocalData] = useState({
         name: '',
         cardNumber: '',
         expirationMonth: '',
         expirationYear: '',
-        cvv: ''
+        cvv: '',
+        payAmount: ''  // Added payAmount to local data
     });
     const [cardType, setCardType] = useState('');
 
@@ -78,10 +86,10 @@ export default function CardPaymentForm() {
 
     return (
         <div className="">
-            <div className="w-full mx-auto space-y-3 md:space-y-6 bg-white p-4 md:p-6 rounded-md">
+            <div className="w-full mx-auto space-y-3 md:space-y-6 p-4 md:p-6 rounded-md">
                 <h1 className="text-xl font-semibold text-gray-900">Pay with Card</h1>
 
-                <div className="mb-6">
+                {/* <div className="mb-6">
                     <p className="text-sm font-medium text-gray-700 mb-2">Cards Accepted :</p>
                     <div className="flex gap-2">
                         <div className="w-12 h-8">
@@ -97,7 +105,7 @@ export default function CardPaymentForm() {
                             <img src="/icons/discover.svg" alt="Discover" fill className="object-contain" />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 md:space-y-4">
                     <div className="relative">
@@ -216,6 +224,28 @@ export default function CardPaymentForm() {
                             )}
                         </div>
                     </div>
+
+                    <div>
+                        <label htmlFor="payAmount" className="block text-sm font-medium text-gray-700 mb-1">
+                            Payment Amount :
+                        </label>
+                        <input
+                            type="text"
+                            id="payAmount"
+                            name="payAmount"
+                            {...register('payAmount', { required: 'Payment Amount is required' })}
+                            onChange={handleChange}
+                            className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                            placeholder="$100.00"
+                            disabled  // Disable the field
+                        />
+                        {errors.payAmount && (
+                            <div className="mt-1 text-sm text-red-500">
+                                {errors.payAmount.message}
+                            </div>
+                        )}
+                    </div>
+
 
                     <button
                         type="submit"

@@ -45,170 +45,194 @@ export default function RegistrationForm() {
     };
 
     return (
-        <div className="md:min-h-screen flex items-center justify-center md:mt-12">
-            <div className="md:py-12 md:rounded-lg bg-gradient-to-tr from-white via-blue-100 to-[#9fbed1]">
-                <div className="mb-4 md:mb-8 mx-2 md:mx-20 mt-2">
-                    <h1 className="text-xl md:text-4xl font-bold text-gray-700 mb-2">
-                        WELCOME To DULLES UNITED Association Membership Registration
+        <div className="md:min-h-screen flex items-center justify-center md:mt-12  bg-gradient-to-tr from-white via-blue-100 to-[#9fbed1] md:rounded-lg">
+            <div className="md:py-12">
+                <div className="max-w-xl md:mx-auto mb-4 mx-2 mt-2 md:px-5">
+                    <h1 className="text-xl font-bold text-gray-700 mb-2">
+                        Welcome to Dulles United Association Membership Registration
                     </h1>
                     <p className="text-sm text-gray-600">
-                        We are a 501(c)(3) nonprofit organization and we welcome everyone in our organization. Please complete your 2022 yearly membership form using the link below.
+                        We are a 501(c)(3) nonprofit organization and we welcome everyone in our organization. Please complete your 2024 yearly membership.
                     </p>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto p-2 md:p-5 rounded-lg shadow transition-transform duration-500 ease-in-out">
-                    <fieldset id="personal-info" className="border-2 border-[#13679f] rounded mb-5 py-2.5 px-3 md:px-5">
+                    <fieldset className="border-2 border-[#13679f] rounded mb-5 py-2.5 px-3 md:px-5">
                         <legend className="bg-[#13679f] text-white py-1 px-2.5 rounded font-bold w-full md:text-2xl">
                             Member Basic Information
                         </legend>
 
-                        {/* Team Name */}
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Team Name <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                {...register('teamName', { required: 'Team Name is required' })}
-                                onChange={(e) => handleInputChange('teamName', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            />
-                            {errors.teamName && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.teamName.message}
-                                </div>
-                            )}
+                        <div className='flex justify-between'>
+                            {/* Team Name */}
+                            <div className="mb-2 w-[55%]">
+                                <label className="block text-base mb-1 font-medium text-gray-700">
+                                    Team Name <span className="text-red-500">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    {...register('teamName', { required: 'Team Name is required' })}
+                                    onChange={(e) => handleInputChange('teamName', e.target.value)}
+                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                />
+                                {errors.teamName && (
+                                    <div className="mt-1 flex items-center text-sm text-red-500">
+                                        <AlertCircle className="h-4 w-4 mr-1" />
+                                        {errors.teamName.message}
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Division */}
+                            <div className="mb-2 w-[40%]">
+                                <label className="block text-base mb-1 font-medium text-gray-700">
+                                    Division <span className="text-red-500">*</span>
+                                </label>
+                                <select
+                                    {...register('division', { required: 'Division is required' })}
+                                    onChange={(e) => handleInputChange('division', e.target.value)}
+                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                >
+                                    <option value="" disabled>Select your division</option>
+                                    <option value="beginner">Beginner - 120 dollars</option>
+                                    <option value="intermediate">Intermediate - 150 dollars</option>
+                                    <option value="open">Open - 200 dollars</option>
+                                </select>
+                                {errors.division && (
+                                    <div className="mt-1 flex items-center text-sm text-red-500">
+                                        <AlertCircle className="h-4 w-4 mr-1" />
+                                        {errors.division.message}
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
-                        {/* Division */}
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Division <span className="text-red-500">*</span>
-                            </label>
-                            <select
-                                {...register('division', { required: 'Division is required' })}
-                                onChange={(e) => handleInputChange('division', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            >
-                                <option value="" disabled>Select your division</option>
-                                <option value="beginner">Beginner - 120 dollars</option>
-                                <option value="intermediate">Intermediate - 150 dollars</option>
-                                <option value="open">Open - 200 dollars</option>
-                            </select>
-                            {errors.division && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.division.message}
+                        <div className='flex justify-between'>
+                            <div className="flex-1 pr-2">
+                                {/* Player 1 */}
+                                <div>
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Player 1
+                                    </label>
+                                    <hr className="border-gray-400 mb-2" />
                                 </div>
-                            )}
+                                <div className="mb-2">
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Full Name <span className="text-red-500">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        {...register('player1FullName', { required: 'Full Name is required' })}
+                                        onChange={(e) => handleInputChange('player1FullName', e.target.value)}
+                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    />
+                                    {errors.player1FullName && (
+                                        <div className="mt-1 flex items-center text-sm text-red-500">
+                                            <AlertCircle className="h-4 w-4 mr-1" />
+                                            {errors.player1FullName.message}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mb-2">
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Email <span className="text-red-500">*</span>
+                                    </label>
+                                    <input
+                                        type="email"
+                                        {...register('player1Email', { required: 'Email is required' })}
+                                        onChange={(e) => handleInputChange('player1Email', e.target.value)}
+                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    />
+                                    {errors.player1Email && (
+                                        <div className="mt-1 flex items-center text-sm text-red-500">
+                                            <AlertCircle className="h-4 w-4 mr-1" />
+                                            {errors.player1Email.message}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mb-2">
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Phone Number <span className="text-red-500">*</span>
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        {...register('player1PhoneNumber', { required: 'Phone Number is required' })}
+                                        onChange={(e) => handleInputChange('player1PhoneNumber', e.target.value)}
+                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    />
+                                    {errors.player1PhoneNumber && (
+                                        <div className="mt-1 flex items-center text-sm text-red-500">
+                                            <AlertCircle className="h-4 w-4 mr-1" />
+                                            {errors.player1PhoneNumber.message}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="border-l flex-1 pl-2  border-white">
+                                {/* Player 2 */}
+                                <div>
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Player 2
+                                    </label>
+                                    <hr className="border-gray-400 mb-2" />
+                                </div>
+                                <div className="mb-2">
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Full Name <span className="text-red-500">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        {...register('player2FullName', { required: 'Full Name is required' })}
+                                        onChange={(e) => handleInputChange('player2FullName', e.target.value)}
+                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    />
+                                    {errors.player2FullName && (
+                                        <div className="mt-1 flex items-center text-sm text-red-500">
+                                            <AlertCircle className="h-4 w-4 mr-1" />
+                                            {errors.player2FullName.message}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mb-2">
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Email <span className="text-red-500">*</span>
+                                    </label>
+                                    <input
+                                        type="email"
+                                        {...register('player2Email', { required: 'Email is required' })}
+                                        onChange={(e) => handleInputChange('player2Email', e.target.value)}
+                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    />
+                                    {errors.player2Email && (
+                                        <div className="mt-1 flex items-center text-sm text-red-500">
+                                            <AlertCircle className="h-4 w-4 mr-1" />
+                                            {errors.player2Email.message}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mb-2">
+                                    <label className="block text-base mb-1 font-medium text-gray-700">
+                                        Phone Number <span className="text-red-500">*</span>
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        {...register('player2PhoneNumber', { required: 'Phone Number is required' })}
+                                        onChange={(e) => handleInputChange('player2PhoneNumber', e.target.value)}
+                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    />
+                                    {errors.player2PhoneNumber && (
+                                        <div className="mt-1 flex items-center text-sm text-red-500">
+                                            <AlertCircle className="h-4 w-4 mr-1" />
+                                            {errors.player2PhoneNumber.message}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Player 1 */}
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Player 1 Full Name <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                {...register('player1FullName', { required: 'Full Name is required' })}
-                                onChange={(e) => handleInputChange('player1FullName', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            />
-                            {errors.player1FullName && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.player1FullName.message}
-                                </div>
-                            )}
-                        </div>
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Player 1 Email <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                {...register('player1Email', { required: 'Email is required' })}
-                                onChange={(e) => handleInputChange('player1Email', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            />
-                            {errors.player1Email && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.player1Email.message}
-                                </div>
-                            )}
-                        </div>
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Player 1 Phone Number <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="tel"
-                                {...register('player1PhoneNumber', { required: 'Phone Number is required' })}
-                                onChange={(e) => handleInputChange('player1PhoneNumber', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            />
-                            {errors.player1PhoneNumber && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.player1PhoneNumber.message}
-                                </div>
-                            )}
-                        </div>
 
-                        {/* Player 2 */}
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Player 2 Full Name <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                {...register('player2FullName', { required: 'Full Name is required' })}
-                                onChange={(e) => handleInputChange('player2FullName', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            />
-                            {errors.player2FullName && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.player2FullName.message}
-                                </div>
-                            )}
-                        </div>
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Player 2 Email <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                {...register('player2Email', { required: 'Email is required' })}
-                                onChange={(e) => handleInputChange('player2Email', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            />
-                            {errors.player2Email && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.player2Email.message}
-                                </div>
-                            )}
-                        </div>
-                        <div className="mb-2">
-                            <label className="block text-base mb-1 font-medium text-gray-700">
-                                Player 2 Phone Number <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="tel"
-                                {...register('player2PhoneNumber', { required: 'Phone Number is required' })}
-                                onChange={(e) => handleInputChange('player2PhoneNumber', e.target.value)}
-                                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
-                            />
-                            {errors.player2PhoneNumber && (
-                                <div className="mt-1 flex items-center text-sm text-red-500">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    {errors.player2PhoneNumber.message}
-                                </div>
-                            )}
-                        </div>
+
+
+
 
                         {/* Team Fee */}
                         <div className="mb-2">

@@ -35,47 +35,49 @@ const PaymentMethodLayout = () => {
 
     return (
         <div
-            className='mt-6 md:my-12 mx-2 flex justify-center'>
-            <fieldset
-                className="border-2 border-[#13679f] rounded mb-5 py-2.5 px-3 md:px-5 w-[34rem]">
-                <legend
-                    className="bg-[#13679f] text-white py-1 px-2.5 rounded font-bold w-full md:text-2xl">Payment Information</legend>
+            className='md:my-12 md:min-h-screen flex items-center justify-center md:mt-12  bg-gradient-to-tr from-white via-blue-100 to-[#9fbed1] md:rounded-lg'>
+            <div className="max-w-xl mx-auto p-2 md:p-5 rounded-lg shadow transition-transform duration-500 ease-in-out">
+                <fieldset
+                    className="border-2 border-[#13679f] rounded mb-5 py-2.5 px-3 md:px-5 ">
+                    <legend
+                        className="bg-[#13679f] text-white py-1 px-2.5 rounded font-bold w-full md:text-2xl">Payment Information</legend>
 
-                {/* Payment Switching button */}
-                <div className='flex justify-center'>
-                    <div className='flex gap-2'>
-                        <button
-                            value="card"
-                            onClick={() => handleChange('card')}
-                            className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
-                        >
-                            Card
-                        </button>
-                        <button
-                            value="zelle"
-                            onClick={() => handleChange('zelle')}
-                            className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
-                        >
-                            Zelle
-                        </button>
+                    {/* Payment Switching button */}
+                    <div className='flex justify-center'>
+                        <div className='flex gap-2'>
+                            <button
+                                value="card"
+                                onClick={() => handleChange('card')}
+                                className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
+                            >
+                                Card
+                            </button>
+                            <button
+                                value="zelle"
+                                onClick={() => handleChange('zelle')}
+                                className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-gray-200 text-gray-700 ' : 'bg-[#14649b] text-white'}`}
+                            >
+                                Zelle
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <div className='flex justify-center mt-4'>
-                    {selectedMethod === 'card' ?
-                        <Elements stripe={stripePromise}>
-                            <CardPaymentForm />
-                        </Elements>
-                        :
-                        <Zelle />}
-                </div>
+                    <div className='flex justify-center mt-4'>
+                        {selectedMethod === 'card' ?
+                            <Elements stripe={stripePromise}>
+                                <CardPaymentForm />
+                            </Elements>
+                            :
+                            <Zelle />}
+                    </div>
 
-                <div className="pt-4 flex justify-end">
-                    <Link to="/badminton/registration">
-                        <ButtonPayment title={"Back"} />
-                    </Link>
-                </div>
-            </fieldset>
+                    <div className="pt-4 flex justify-end">
+                        <Link to="/badminton/registration">
+                            <ButtonPayment title={"Back"} />
+                        </Link>
+                    </div>
+                </fieldset>
+            </div>
 
         </div>
     );
