@@ -4,7 +4,7 @@ const ButtonPayment = ({ title }) => {
     return (
         <button
             type="submit"
-            className="px-6 py-2 text-white bg-[#14649b] rounded-md shadow-sm"
+            className="px-6 py-2 text-gray-100 bg-[#14649b] rounded-md shadow-sm"
             style={{
                 transition: 'transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease',
             }}

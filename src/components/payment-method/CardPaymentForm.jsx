@@ -83,7 +83,7 @@ export default function CardPaymentForm() {
                         <CardElement
                             id="cardNumber"
                             name="cardNumber"
-                            className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                            className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                         />
                     </div>
 
@@ -98,7 +98,7 @@ export default function CardPaymentForm() {
                             value={localData.fullName}
                             {...register('fullName', { required: 'Full Name is required' })}
                             onChange={handleChange}
-                            className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                            className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                             placeholder="Terry B."
                         />
                         {errors.fullName && (
@@ -119,7 +119,7 @@ export default function CardPaymentForm() {
                             value={localData.email}
                             {...register('email', { required: 'Email is required' })}
                             onChange={handleChange}
-                            className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                            className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                             placeholder="terry@example.com"
                         />
                         {errors.email && (
@@ -145,7 +145,7 @@ export default function CardPaymentForm() {
                                     value={localData.billingAddress.street}
                                     {...register('street', { required: 'Street is required' })}
                                     onChange={handleBillingChange}
-                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                                     placeholder="123 Main St"
                                 />
                                 {errors.street && (
@@ -166,7 +166,7 @@ export default function CardPaymentForm() {
                                     value={localData.billingAddress.city}
                                     {...register('city', { required: 'City is required' })}
                                     onChange={handleBillingChange}
-                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                                     placeholder="Anytown"
                                 />
                                 {errors.city && (
@@ -189,7 +189,7 @@ export default function CardPaymentForm() {
                                     value={localData.billingAddress.state}
                                     {...register('state', { required: 'State is required' })}
                                     onChange={handleBillingChange}
-                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                                     placeholder="Anystate"
                                 />
                                 {errors.state && (
@@ -210,7 +210,7 @@ export default function CardPaymentForm() {
                                     value={localData.billingAddress.zip}
                                     {...register('zip', { required: 'Zip Code is required' })}
                                     onChange={handleBillingChange}
-                                    className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                                    className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                                     placeholder="12345"
                                 />
                                 {errors.zip && (
@@ -224,7 +224,7 @@ export default function CardPaymentForm() {
 
                     <button
                         type="submit"
-                        className="w-full bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
+                        className="w-full bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
                         disabled={!stripe || !elements}
                     >
                         pay ${formDataContext?.teamFee || 0}

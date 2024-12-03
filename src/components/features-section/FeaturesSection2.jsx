@@ -34,7 +34,7 @@ export default function GetInvolved() {
       <div className="grid grid-cols-3 gap-2 md:gap-6">
         {cards.map((card, index) => {
           const Icon = card.icon
-          const textColor = card.bgColor === "bg-yellow-400" ? "text-zinc-800" : "text-white"
+          const textColor = card.bgColor === "bg-yellow-400" ? "text-zinc-800" : "text-gray-100"
           return (
             <div
               key={index}

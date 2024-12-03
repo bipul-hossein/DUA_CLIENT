@@ -31,10 +31,10 @@
 //             />
 //           </div>
 
-//           <p className="text-sm text-gray-500 text-center">
+//           <p className="text-sm text-gray-600 text-center">
 //             Scan this QR code with your Zelle app to send the payment.
 //           </p>
-//           <p className="text-sm text-gray-500 text-center">
+//           <p className="text-sm text-gray-600 text-center">
 //             After you complete your payment, click the "Check Request" button and provide your full name, email, and transaction ID. Then, click the "Payment Complete" button. The admin will respond shortly.
 //           </p>
 //         </div>
@@ -42,7 +42,7 @@
 //         <form onSubmit={handleSubmit} className="pt-4">
 //           <button
 //             type="submit"
-//             className="w-full bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
+//             className="w-full bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
 //           >
 //            Check Request
 //           </button>
@@ -95,10 +95,10 @@ export default function ZellePayment() {
               priority
             />
           </div>
-          <p className="text-sm text-gray-500 text-center">
+          <p className="text-sm text-gray-600 text-center">
             Scan this QR code with your Zelle app to send the payment.
           </p>
-          <p className="text-sm text-gray-500 text-center">
+          <p className="text-sm text-gray-600 text-center">
             After you complete your payment, click the "Check Request" button and provide your full name, email, and transaction ID. Then, click the "Payment Completed" button. The admin will respond shortly.
           </p>
         </div>
@@ -107,7 +107,7 @@ export default function ZellePayment() {
           <button
             type="button"
             onClick={handleCheckRequest}
-            className="w-full bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
+            className="w-full bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
           >
             Check Request
           </button>
@@ -122,7 +122,7 @@ export default function ZellePayment() {
               <input
                 type="text"
                 {...register('fullName', { required: 'Full Name is required' })}
-                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
               />
               {errors.fullName && (
                 <div className="mt-1 flex items-center text-sm text-red-500">
@@ -144,7 +144,7 @@ export default function ZellePayment() {
                     message: 'Invalid email address'
                   }
                 })}
-                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
               />
               {errors.email && (
                 <div className="mt-1 flex items-center text-sm text-red-500">
@@ -159,7 +159,7 @@ export default function ZellePayment() {
               </label>
               <textarea
                 {...register('memo')}
-                className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
               />
               {errors.memo && (
                 <div className="mt-1 flex items-center text-sm text-red-500">
@@ -170,7 +170,7 @@ export default function ZellePayment() {
 
             <button
               type="submit"
-              className="w-full bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
+              className="w-full bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6"
             >
               Payment Completed
             </button>

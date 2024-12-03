@@ -58,7 +58,7 @@ export default function RegistrationForm() {
 
                 <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto p-2 md:p-5 rounded-lg shadow transition-transform duration-500 ease-in-out">
                     <fieldset className="border-2 border-[#13679f] rounded mb-5 py-2.5 px-3 md:px-5">
-                        <legend className="bg-[#13679f] text-white py-1 px-2.5 rounded font-bold w-full md:text-2xl">
+                        <legend className="bg-[#13679f] text-gray-100 py-1 px-2.5 rounded font-bold w-full md:text-2xl">
                             Team Information
                         </legend>
 
@@ -72,7 +72,7 @@ export default function RegistrationForm() {
                                     type="text"
                                     {...register('teamName', { required: 'Team Name is required' })}
                                     onChange={(e) => handleInputChange('teamName', e.target.value)}
-                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                 />
                                 {errors.teamName && (
                                     <div className="mt-1 flex items-center text-sm text-red-500">
@@ -90,7 +90,8 @@ export default function RegistrationForm() {
                                 <select
                                     {...register('division', { required: 'Division is required' })}
                                     onChange={(e) => handleInputChange('division', e.target.value)}
-                                    className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                    defaultValue=""
+                                    className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                 >
                                     <option value="" disabled>Select your division</option>
                                     <option value="beginner">Beginner</option>
@@ -123,7 +124,7 @@ export default function RegistrationForm() {
                                         type="text"
                                         {...register('player1FullName', { required: 'Full Name is required' })}
                                         onChange={(e) => handleInputChange('player1FullName', e.target.value)}
-                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                        className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />
                                     {errors.player1FullName && (
                                         <div className="mt-1 flex items-center text-sm text-red-500">
@@ -140,7 +141,7 @@ export default function RegistrationForm() {
                                         type="email"
                                         {...register('player1Email', { required: 'Email is required' })}
                                         onChange={(e) => handleInputChange('player1Email', e.target.value)}
-                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                        className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />
                                     {errors.player1Email && (
                                         <div className="mt-1 flex items-center text-sm text-red-500">
@@ -157,7 +158,7 @@ export default function RegistrationForm() {
                                         type="tel"
                                         {...register('player1PhoneNumber', { required: 'Phone Number is required' })}
                                         onChange={(e) => handleInputChange('player1PhoneNumber', e.target.value)}
-                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                        className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />
                                     {errors.player1PhoneNumber && (
                                         <div className="mt-1 flex items-center text-sm text-red-500">
@@ -183,7 +184,7 @@ export default function RegistrationForm() {
                                         type="text"
                                         {...register('player2FullName', { required: 'Full Name is required' })}
                                         onChange={(e) => handleInputChange('player2FullName', e.target.value)}
-                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                        className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />
                                     {errors.player2FullName && (
                                         <div className="mt-1 flex items-center text-sm text-red-500">
@@ -200,7 +201,7 @@ export default function RegistrationForm() {
                                         type="email"
                                         {...register('player2Email', { required: 'Email is required' })}
                                         onChange={(e) => handleInputChange('player2Email', e.target.value)}
-                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                        className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />
                                     {errors.player2Email && (
                                         <div className="mt-1 flex items-center text-sm text-red-500">
@@ -217,7 +218,7 @@ export default function RegistrationForm() {
                                         type="tel"
                                         {...register('player2PhoneNumber', { required: 'Phone Number is required' })}
                                         onChange={(e) => handleInputChange('player2PhoneNumber', e.target.value)}
-                                        className="flex-grow border border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-black"
+                                        className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />
                                     {errors.player2PhoneNumber && (
                                         <div className="mt-1 flex items-center text-sm text-red-500">
@@ -237,7 +238,7 @@ export default function RegistrationForm() {
                                 type="text"
                                 value={`$${teamFee}`}
                                 readOnly
-                                className="flex-grow border border-gray-300 p-2 md:p-3 w-full rounded-md shadow-sm bg-gray-100 text-black"
+                                className="flex-grow border border-gray-300 p-2 md:p-3 w-full rounded-md shadow-sm bg-gray-100 text-gray-600"
                             />
                         </div>
 

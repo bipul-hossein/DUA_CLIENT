@@ -21,7 +21,7 @@ export default function ProgramCard({ title, description, imageUrl, onDonate }) 
 
                 <button
                     onClick={onDonate}
-                    className="inline-flex items-center px-6 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors"
+                    className="inline-flex items-center px-6 py-2 bg-orange-500 text-gray-100 rounded-full hover:bg-orange-600 transition-colors"
                 >
                     <Heart className="w-4 h-4 mr-2" />
                     Donate

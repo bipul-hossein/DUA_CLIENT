@@ -14,6 +14,7 @@ import PaymentForm from '../../components/payment-method/CardPaymentForm';
 import Zelle from '../../components/payment-method/ZellePayment';
 import PaymentReceipt from '../../components/payment-method/PaymentReceipt';
 import PaymentSuccess from '../../components/payment-method/PaymentSuccess';
+import Score from '../../pages/badminton/score/Score';
 
 
 const routes = createBrowserRouter([
@@ -71,6 +72,10 @@ const routes = createBrowserRouter([
                 element: <Gallery />,
             },
             {
+                path: '/badminton/score',
+                element: <Score />,
+            },
+            {
                 path: '/soccer/registration',
                 element: <Registration />,
             },
@@ -85,6 +90,10 @@ const routes = createBrowserRouter([
             {
                 path: '/soccer/gallery',
                 element: <Gallery />,
+            },
+            {
+                path: '/soccer/score',
+                element: <Score />,
             },
 
         ],

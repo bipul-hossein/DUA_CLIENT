@@ -35,7 +35,7 @@ export default function GalleryImage({ src, alt }) {
                         />
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute top-4 right-4 text-red-500 hover:text-black"
+                            className="absolute top-4 right-4 text-red-500 hover:text-gray-600"
                         >
                             <span className="sr-only">Close</span>
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

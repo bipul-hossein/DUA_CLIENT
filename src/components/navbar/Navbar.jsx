@@ -6,7 +6,7 @@ import { Menu, X, Home, Info, Calendar, Star, Feather, Mail, DollarSign, Chevron
 
 
 const menuItems = [
-    { to: "/", icon: Home, label: "HOME" },
+    { to: "/", icon: Home, label: "Home" },
     { to: "/about-us", icon: Info, label: "About Us" },
     { to: "/events", icon: Calendar, label: "Events" },
     {
@@ -16,18 +16,20 @@ const menuItems = [
             { to: "/soccer/registration", label: "Registration" },
             { to: "/soccer/bylaws", label: "Bylaws" },
             { to: "/soccer/gallery", label: "Gallery" },
-            { to: "/soccer/waiver-form", label: "Waiver Form" }
+            { to: "/soccer/waiver-form", label: "Waiver Form" },
+            { to: "/soccer/score", label: "Score" }
         ]
     },
     {
-        // icon: () => <img className="text-white " src="/badIcon.svg" alt="Badminton" />,
-        icon: Star,
+        icon: () => <img className="text-gray-100 " src="/badIcon.svg" alt="Badminton" />,
+        // icon: Star,
         label: "Badminton",
         subLinks: [
             { to: "/badminton/registration", label: "Registration" },
             { to: "/badminton/bylaws", label: "Bylaws" },
             { to: "/badminton/waiver-form", label: "Waiver Form" },
-            { to: "/badminton/gallery", label: "Gallery" }
+            { to: "/badminton/gallery", label: "Gallery" },
+            { to: "/badminton/score", label: "Score" }
         ]
     },
     { to: "/contact-us", icon: Mail, label: "Contact Us" },
@@ -94,7 +96,7 @@ export default function Navbar() {
                                                     <Link
                                                         key={subLink.to}
                                                         to={subLink.to}
-                                                        className={`block px-4 py-2 text-white hover:bg-[#092f48] transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
+                                                        className={`block px-4 py-2 text-gray-100 hover:bg-[#092f48] transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
                                                             }`}
                                                     >
                                                         {subLink?.label}
@@ -112,7 +114,7 @@ export default function Navbar() {
                     <div className="md:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-white border border-white hover:bg-blue-600 focus:outline-none"
+                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-100 border border-white hover:bg-blue-600 focus:outline-none"
                         >
                             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>
@@ -128,7 +130,7 @@ export default function Navbar() {
                     <div className="overflow-y-auto h-full max-h-screen pt-2 pb-3 space-y-1 sm:px-3 bg-[#14649b]">
                         {menuItems.map(item => (
                             <div key={item.to}>
-                                <div className={`flex items-center justify-between px-3 py-2 text-white hover:bg-blue-600 transition-colors ${pathname === item?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
+                                <div className={`flex items-center justify-between px-3 py-2 text-gray-100 hover:bg-blue-600 transition-colors ${pathname === item?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
                                     }`}
                                     onClick={() => item.subLinks ? toggleSubMenu(item.label) : null}
                                 >
@@ -158,7 +160,7 @@ export default function Navbar() {
                                             <Link
                                                 key={subLink.to}
                                                 to={subLink.to}
-                                                className={`block px-4 py-2 text-white hover:bg-blue-600 rounded-md transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
+                                                className={`block px-4 py-2 text-gray-100 hover:bg-blue-600 rounded-md transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
                                                     }`}
                                             >
                                                 {subLink.label}

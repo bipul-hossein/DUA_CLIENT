@@ -6,7 +6,7 @@ export default function PaymentSuccess() {
             <div className="mx-auto space-y-6 bg-white/20 p-4 md:p-6 rounded-md px-4">
                 <div className="flex flex-col items-center justify-center space-y-4">
                     <div className="bg-green-500 rounded-full p-4">
-                        <CheckIcon className="h-8 w-8 text-white" />
+                        <CheckIcon className="h-8 w-8 text-gray-100" />
                     </div>
                     <h1 className="text-3xl font-bold">Payment Successful</h1>
                     <p className="text-muted-foreground">
@@ -33,14 +33,14 @@ export default function PaymentSuccess() {
                     <div className="flex justify-between flex-wrap-reverse gap-4 mt-4">
                         <Link
                             to="/"
-                            className="bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors"
+                            className="bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors"
                             prefetch={false}
                         >
                             Return to Home
                         </Link>
                         <Link
                             to=""
-                            className="bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors"
+                            className="bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors"
                             prefetch={false}
                         >
                             Download payment receipt

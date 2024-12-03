@@ -44,7 +44,7 @@
 //                 ))}
 //             </Swiper>
 
-//             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+//             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-100 px-4">
 //                 <h2 className="text-2xl md:text-5xl font-bold mb-2">
 //                     Welcome to DULLES UNITED ASSOCIATION
 //                 </h2>
@@ -110,7 +110,7 @@ export default function HeroSection() {
             </Swiper>
 
             {/* Text Section with z-index and pointer-events-none */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 z-10 pointer-events-none">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-100 px-4 z-10 pointer-events-none">
                 <h2 className="text-2xl md:text-5xl font-bold mb-2">
                     Welcome to DULLES UNITED ASSOCIATION
                 </h2>

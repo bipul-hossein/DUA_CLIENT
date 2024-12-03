@@ -17,7 +17,7 @@ export default function AboutUs() {
                         </div> */}
 
                         {/* Content Column */}
-                        <div className="text-white">
+                        <div className="text-gray-100">
                             <h1 className="text-xl md:text-3xl font-bold text-blue-100">
                                 DULLES UNITED ASSOCIATION
                             </h1>
@@ -60,7 +60,7 @@ export default function AboutUs() {
                             <div className="pt-4">
                                 {/* <button
                                     to=""
-                                    className="mt-8 px-8 py-3 text-white rounded-md bg-[#14649b] hover:bg-[#092f48] transition-colors"
+                                    className="mt-8 px-8 py-3 text-gray-100 rounded-md bg-[#14649b] hover:bg-[#092f48] transition-colors"
                                 >
                                     Join Our Community
                                 </button> */}

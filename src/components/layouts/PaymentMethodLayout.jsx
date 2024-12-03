@@ -40,7 +40,7 @@ const PaymentMethodLayout = () => {
                 <fieldset
                     className="border-2 border-[#13679f] rounded mb-5 py-2.5 px-3 md:px-5 ">
                     <legend
-                        className="bg-[#13679f] text-white py-1 px-2.5 rounded font-bold w-full md:text-2xl">Payment Information</legend>
+                        className="bg-[#13679f] text-gray-100 py-1 px-2.5 rounded font-bold w-full md:text-2xl">Payment Information</legend>
 
                     {/* Payment Switching button */}
                     <div className='flex justify-center'>
@@ -48,14 +48,14 @@ const PaymentMethodLayout = () => {
                             <button
                                 value="card"
                                 onClick={() => handleChange('card')}
-                                className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-[#14649b] text-white' : 'bg-gray-200 text-gray-700'}`}
+                                className={`px-12 py-2 rounded-md ${selectedMethod === 'card' ? 'bg-[#14649b] text-gray-100' : 'bg-gray-200 text-gray-700'}`}
                             >
                                 Card
                             </button>
                             <button
                                 value="zelle"
                                 onClick={() => handleChange('zelle')}
-                                className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-[#14649b] text-white' : 'bg-gray-200 text-gray-700'}`}
+                                className={`px-12 py-2 rounded-md ${selectedMethod === 'zelle' ? 'bg-[#14649b] text-gray-100' : 'bg-gray-200 text-gray-700'}`}
                             >
                                 Zelle
                             </button>

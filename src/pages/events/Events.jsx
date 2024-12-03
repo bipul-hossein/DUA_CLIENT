@@ -22,12 +22,12 @@ const Events = () => {
     return (
         <section className="py-16 h-screen mx-auto px-2 md:px-0">
             <div className="text-center mb-6 md:mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-white">We Organized</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-gray-100">We Organized</h2>
             </div>
 
             <div className="space-y-8">
                 {activities.map((activity, index) => (
-                    <div key={index} className="text-white">
+                    <div key={index} className="text-gray-100">
                         <strong>{activity.title}{activity.date ? `: ${activity.date}` : ""}</strong> {activity.description}
                     </div>
                 ))}

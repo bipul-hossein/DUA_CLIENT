@@ -47,7 +47,7 @@ export default function ActivitiesSection() {
                         </h2>
                         <div className="space-y-8 overflow-auto">
                             {activities.map((activity, index) => (
-                                <div key={index} className="text-black">
+                                <div key={index} className="text-gray-600">
                                     <strong>{activity.title}:</strong> {activity.date}, {activity.description}
                                 </div>
                             ))}
