@@ -15,6 +15,7 @@ import Zelle from '../../components/payment-method/ZellePayment';
 import PaymentReceipt from '../../components/payment-method/PaymentReceipt';
 import PaymentSuccess from '../../components/payment-method/PaymentSuccess';
 import Score from '../../pages/badminton/score/Score';
+import QrCodeFonZelle from '../../components/payment-method/QrCodeFonZelle';
 
 
 const routes = createBrowserRouter([
@@ -50,6 +51,10 @@ const routes = createBrowserRouter([
             {
                 path: '/badminton/registration/payment-method',
                 element: <PaymentMethod />,
+            },
+            {
+                path: '/badminton/registration/payment-method/zelle-qrcode',
+                element: <QrCodeFonZelle />,
             },
             {
                 path: '/badminton/registration/payment-method/payment-success',

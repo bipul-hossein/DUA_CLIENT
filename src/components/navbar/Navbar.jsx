@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from 'react';
 import { Menu, X, Home, Info, Calendar, Mail, DollarSign, ChevronDown, ChevronUp, Volleyball } from 'lucide-react';
-import { GiShuttlecock } from "react-icons/gi";
+
 
 const menuItems = [
     { to: "/", icon: <Home />, label: "Home" },
@@ -19,13 +19,13 @@ const menuItems = [
         ]
     },
     {
-        icon: <GiShuttlecock className="rotate" />,
+        icon: < img src="/badIcon.png" className="h-6 w-6" />,
         label: "Badminton",
         subLinks: [
             { to: "/badminton/registration", label: "Registration" },
             { to: "/badminton/bylaws", label: "Bylaws" },
-            { to: "/badminton/waiver-form", label: "Waiver Form" },
             { to: "/badminton/gallery", label: "Gallery" },
+            { to: "/badminton/waiver-form", label: "Waiver Form" },
             { to: "/badminton/score", label: "Score" }
         ]
     },
@@ -65,8 +65,8 @@ export default function Navbar() {
                     {/* Desktop Menu */}
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-center">
-                            {menuItems.map(item => (
-                                <div key={item.to} className="relative group">
+                            {menuItems.map((item, i) => (
+                                <div key={i} className="relative group">
                                     {item.subLinks ? (
                                         <div
                                             className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors cursor-pointer ${pathname === item?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
@@ -89,9 +89,9 @@ export default function Navbar() {
                                     {item.subLinks && (
                                         <div className="absolute left-0 w-48 bg-[#14649b] shadow-lg hidden group-hover:block z-50">
                                             <div className="py-2">
-                                                {item.subLinks.map(subLink => (
+                                                {item.subLinks.map((subLink, i) => (
                                                     <Link
-                                                        key={subLink.to}
+                                                        key={i}
                                                         to={subLink.to}
                                                         className={`block px-4 py-2 text-gray-100 hover:bg-[#092f48] transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
                                                             }`}
@@ -125,8 +125,8 @@ export default function Navbar() {
                 <div className={`w-64 h-screen border-primary md:rounded-xl bg-[#212121] flex flex-col justify-between fixed md:static inset-y-0 right-0 md:left-0 mt-0 md:mt-0 transform ${isOpen ? "translate-x-0" : "translate-x-full"
                     } md:translate-x-0 transition-transform duration-200 ease-in-out z-50`}>
                     <div className="overflow-y-auto h-full max-h-screen pt-2 pb-3 space-y-1 sm:px-3 bg-[#14649b]">
-                        {menuItems.map(item => (
-                            <div key={item.to}>
+                        {menuItems.map((item, i) => (
+                            <div key={i}>
                                 <div className={`flex items-center justify-between px-3 py-2 text-gray-100 hover:bg-blue-600 transition-colors ${pathname === item?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
                                     }`}
                                     onClick={() => item.subLinks ? toggleSubMenu(item.label) : null}
@@ -153,9 +153,9 @@ export default function Navbar() {
                                 </div>
                                 {item.subLinks && activeMenu === item.label && (
                                     <div className="ml-4">
-                                        {item.subLinks.map(subLink => (
+                                        {item.subLinks.map((subLink, i) => (
                                             <Link
-                                                key={subLink.to}
+                                                key={i}
                                                 to={subLink.to}
                                                 className={`block px-4 py-2 text-gray-100 hover:bg-blue-600 rounded-md transition-colors ${pathname === subLink?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
                                                     }`}

@@ -17,7 +17,7 @@ export default function CardPaymentForm() {
         cvv: '',
         payAmount: '',
         billingAddress: {
-            street: '',
+            address: '',
             city: '',
             state: '',
             zip: '',
@@ -135,22 +135,22 @@ export default function CardPaymentForm() {
                         </label>
                         <div className="flex gap-4">
                             <div className="w-full md:w-1/2">
-                                <label htmlFor="street" className="block text-sm font-medium text-gray-700">
-                                    Street :
+                                <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+                                    Address :
                                 </label>
                                 <input
                                     type="text"
-                                    id="street"
-                                    name="street"
-                                    value={localData.billingAddress.street}
-                                    {...register('street', { required: 'Street is required' })}
+                                    id="address"
+                                    name="address"
+                                    value={localData.billingAddress.address}
+                                    {...register('address', { required: 'Address is required' })}
                                     onChange={handleBillingChange}
                                     className="w-full text-gray-600 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#13679f]"
                                     placeholder="123 Main St"
                                 />
-                                {errors.street && (
+                                {errors.address && (
                                     <div className="mt-1 text-sm text-red-500">
-                                        {errors.street.message}
+                                        {errors.address.message}
                                     </div>
                                 )}
                             </div>
