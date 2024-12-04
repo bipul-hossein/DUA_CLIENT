@@ -1,16 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from 'react';
-import { Menu, X, Home, Info, Calendar, Star, Feather, Mail, DollarSign, ChevronDown, ChevronUp, Volleyball } from 'lucide-react';
-
-
-
+import { Menu, X, Home, Info, Calendar, Mail, DollarSign, ChevronDown, ChevronUp, Volleyball } from 'lucide-react';
+import { GiShuttlecock } from "react-icons/gi";
 
 const menuItems = [
-    { to: "/", icon: Home, label: "Home" },
-    { to: "/about-us", icon: Info, label: "About Us" },
-    { to: "/events", icon: Calendar, label: "Events" },
+    { to: "/", icon: <Home />, label: "Home" },
+    { to: "/about-us", icon: <Info />, label: "About Us" },
+    { to: "/events", icon: <Calendar />, label: "Events" },
     {
-        icon: Volleyball,
+        icon: <Volleyball />,
         label: "Soccer",
         subLinks: [
             { to: "/soccer/registration", label: "Registration" },
@@ -21,8 +19,7 @@ const menuItems = [
         ]
     },
     {
-        icon: () => <img className="text-gray-100 " src="/badIcon.svg" alt="Badminton" />,
-        // icon: Star,
+        icon: <GiShuttlecock className="rotate" />,
         label: "Badminton",
         subLinks: [
             { to: "/badminton/registration", label: "Registration" },
@@ -32,8 +29,8 @@ const menuItems = [
             { to: "/badminton/score", label: "Score" }
         ]
     },
-    { to: "/contact-us", icon: Mail, label: "Contact Us" },
-    { to: "/donation", icon: DollarSign, label: "Donation" }
+    { to: "/contact-us", icon: <Mail />, label: "Contact Us" },
+    { to: "/donation", icon: <DollarSign />, label: "Donation" }
 ];
 
 export default function Navbar() {
@@ -76,7 +73,7 @@ export default function Navbar() {
                                                 }`}
                                             onClick={() => toggleSubMenu(item.label)}
                                         >
-                                            <item.icon className="w-5 h-5" />
+                                            {item.icon}
                                             {item?.label}
                                         </div>
                                     ) : (
@@ -85,7 +82,7 @@ export default function Navbar() {
                                             className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors ${pathname === item?.to && "text-[#a1c3da] font-bold bg-[#092f48]"
                                                 }`}
                                         >
-                                            <item.icon className="w-5 h-5" />
+                                            {item.icon}
                                             {item?.label}
                                         </Link>
                                     )}
@@ -136,7 +133,7 @@ export default function Navbar() {
                                 >
                                     {item.subLinks ? (
                                         <div className="flex items-center cursor-pointer">
-                                            <item.icon className="w-5 h-5 mr-2" />
+                                            {item.icon}
                                             {item?.label}
                                         </div>
                                     ) : (
@@ -144,7 +141,7 @@ export default function Navbar() {
                                             to={item.to}
                                             className="flex items-center"
                                         >
-                                            <item.icon className="w-5 h-5 mr-2" />
+                                            {item.icon}
                                             {item?.label}
                                         </Link>
                                     )}

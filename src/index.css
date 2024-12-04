@@ -13,6 +13,13 @@ body {
 }
 
 
+.rotate {
+  @apply rotate-90;
+  font-size: 26px;
+}
+
+
+
 /* slider css start */
 .swiper-container {
   width: 100%;
