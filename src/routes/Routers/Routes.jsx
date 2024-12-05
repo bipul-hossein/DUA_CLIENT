@@ -5,17 +5,22 @@ import AboutUs from '../../pages/about-us/AboutUs';
 import Events from '../../pages/events/Events';
 import ContactUs from '../../pages/contact-us/ContactUs';
 import Donation from '../../pages/donation/Donation';
-import Registration from '../../pages/badminton/registration/Registration';
-import Bylaws from '../../pages/badminton/bylaws/Bylaws';
 import WaiverForm from '../../pages/badminton/waiver-form/WaiverForm';
-import Gallery from '../../pages/badminton/gallery/Gallery';
 import PaymentMethod from '../../pages/badminton/registration/PaymentMethod';
 import PaymentForm from '../../components/payment-method/CardPaymentForm';
 import Zelle from '../../components/payment-method/ZellePayment';
 import PaymentReceipt from '../../components/payment-method/PaymentReceipt';
 import PaymentSuccess from '../../components/payment-method/PaymentSuccess';
-import Score from '../../pages/badminton/score/Score';
 import QrCodeFonZelle from '../../components/payment-method/QrCodeFonZelle';
+import BadmintonRegistration from '../../pages/badminton/registration/Registration';
+import BadmintonBylaws from '../../pages/badminton/bylaws/Bylaws';
+import BadmintonGallery from '../../pages/badminton/gallery/Gallery';
+import BadmintonScore from '../../pages/badminton/score/Score';
+import SoccerRegistration from '../../pages/soccer/registration/Registration';
+import SoccerBylaws from '../../pages/soccer/bylaws/Bylaws';
+import SoccerWaiverForm from '../../pages/soccer/waiver-form/WaiverForm';
+import SoccerGallery from '../../pages/soccer/gallery/Gallery';
+import SoccerScore from '../../pages/soccer/score/Score';
 
 
 const routes = createBrowserRouter([
@@ -46,7 +51,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/badminton/registration',
-                element: <Registration />
+                element: <BadmintonRegistration />
             },
             {
                 path: '/badminton/registration/payment-method',
@@ -66,7 +71,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/badminton/bylaws',
-                element: <Bylaws />,
+                element: <BadmintonBylaws />,
             },
             {
                 path: '/badminton/waiver-form',
@@ -74,31 +79,31 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/badminton/gallery',
-                element: <Gallery />,
+                element: <BadmintonGallery />,
             },
             {
                 path: '/badminton/score',
-                element: <Score />,
+                element: <BadmintonScore />,
             },
             {
                 path: '/soccer/registration',
-                element: <Registration />,
+                element: <SoccerRegistration />,
             },
             {
                 path: '/soccer/bylaws',
-                element: <Bylaws />,
+                element: <SoccerBylaws />,
             },
             {
                 path: '/soccer/waiver-form',
-                element: <WaiverForm />,
+                element: <SoccerWaiverForm />,
             },
             {
                 path: '/soccer/gallery',
-                element: <Gallery />,
+                element: <SoccerGallery />,
             },
             {
                 path: '/soccer/score',
-                element: <Score />,
+                element: <SoccerScore />,
             },
 
         ],

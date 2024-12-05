@@ -1,7 +1,7 @@
 import React from 'react';
-import RegistrationForm from '../../../components/registration-form/RegistrationForm';
+import RegistrationForm from '../../../components/registration-form/BadmintonRegistrationForm';
 
-const Registration = () => {
+const BadmintonRegistration = () => {
     return (
         <>
             <RegistrationForm />
@@ -9,4 +9,4 @@ const Registration = () => {
     );
 };
 
-export default Registration;
+export default BadmintonRegistration;

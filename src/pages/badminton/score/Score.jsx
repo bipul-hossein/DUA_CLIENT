@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Score = () => {
+const BadmintonScore = () => {
     return (
         <div className='min-h-screen'>
             score
@@ -8,4 +8,4 @@ const Score = () => {
     );
 };
 
-export default Score;
+export default BadmintonScore;

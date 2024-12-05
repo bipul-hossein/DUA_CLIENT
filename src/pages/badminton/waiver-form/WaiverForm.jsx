@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WaiverForm = () => {
+const BadmintonWaiverForm = () => {
     return (
         <div className='h-screen'>
             waiver form for badminton
@@ -8,4 +8,4 @@ const WaiverForm = () => {
     );
 };
 
-export default WaiverForm;
+export default BadmintonWaiverForm;

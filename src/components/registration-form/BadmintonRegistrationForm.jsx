@@ -1,11 +1,11 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { AlertCircle } from 'lucide-react';
 import { RegistrationContext } from '../../contextsApi/RegistrationContext';
 import { useNavigate } from 'react-router-dom';
 import ButtonPayment from '../share/button/ButtonPayment';
 
-export default function RegistrationForm() {
+export default function BadmintonRegistrationForm() {
     const navigate = useNavigate();
     const [formDataContext, setFormDataContext] = useContext(RegistrationContext);
 
