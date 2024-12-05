@@ -1,104 +1,109 @@
+import { createBrowserRouter } from 'react-router-dom';
+import App from '../../App';
+import Home from '../../pages/home/Home';
+import AboutUs from '../../pages/about-us/AboutUs';
+import Events from '../../pages/events/Events';
+import ContactUs from '../../pages/contact-us/ContactUs';
+import Donation from '../../pages/donation/Donation';
+import PaymentMethod from '../../pages/badminton/registration/PaymentMethod';
+import PaymentReceipt from '../../components/payment-method/PaymentReceipt';
+import PaymentSuccess from '../../components/payment-method/PaymentSuccess';
+import QrCodeFonZelle from '../../components/payment-method/QrCodeFonZelle';
+import BadmintonRegistration from '../../pages/badminton/registration/Registration';
+import BadmintonBylaws from '../../pages/badminton/bylaws/Bylaws';
+import BadmintonGallery from '../../pages/badminton/gallery/Gallery';
+import BadmintonScore from '../../pages/badminton/score/Score';
+import SoccerRegistration from '../../pages/soccer/registration/Registration';
+import SoccerBylaws from '../../pages/soccer/bylaws/Bylaws';
+import SoccerWaiverForm from '../../pages/soccer/waiver-form/WaiverForm';
+import SoccerGallery from '../../pages/soccer/gallery/Gallery';
+import SoccerScore from '../../pages/soccer/score/Score';
+import BadmintonWaiverForm from '../../pages/badminton/waiver-form/WaiverForm';
 
-import { createBrowserRouter } from "react-router-dom";
-import App from "../../App";
-import Home from "../../pages/home/Home";
-import AboutUs from "../../pages/about-us/AboutUs";
-import Events from "../../pages/events/Events";
-import ContactUs from "../../pages/contact-us/ContactUs";
-import Donation from "../../pages/donation/Donation";
-import Registration from "../../pages/badminton/registration/Registration";
-import Bylaws from "../../pages/badminton/bylaws/Bylaws";
-import WaiverForm from "../../pages/badminton/waiver-form/WaiverForm";
-import Gallery from "../../pages/badminton/gallery/Gallery";
-import PaymentMethod from "../../pages/badminton/registration/PaymentMethod";
-import PaymentForm from "../../components/payment-method/CardPaymentForm";
-import Zelle from "../../components/payment-method/ZellePayment";
-import PaymentReceipt from "../../components/payment-method/PaymentReceipt";
-import PaymentSuccess from "../../components/payment-method/PaymentSuccess";
-import Score from "../../pages/badminton/score/Score";
-import QrCodeFonZelle from "../../components/payment-method/QrCodeFonZelle";
 
 const routes = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
+
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/about-us",
+        path: '/about-us',
         element: <AboutUs />,
       },
       {
-        path: "/events",
+        path: '/events',
         element: <Events />,
       },
       {
-        path: "/contact-us",
+        path: '/contact-us',
         element: <ContactUs />,
       },
       {
-        path: "/donation",
+        path: '/donation',
         element: <Donation />,
       },
       {
-        path: "/badminton/registration",
-        element: <Registration />,
+        path: '/badminton/registration',
+        element: <BadmintonRegistration />
       },
       {
-        path: "/badminton/registration/payment-method",
+        path: '/badminton/registration/payment-method',
         element: <PaymentMethod />,
       },
       {
-        path: "/badminton/registration/payment-method/zelle-qrcode",
+        path: '/badminton/registration/payment-method/zelle-qrcode',
         element: <QrCodeFonZelle />,
       },
       {
-        path: "/payment/payment-success",
+        path: '/badminton/registration/payment-method/payment-success',
         element: <PaymentSuccess />,
       },
       {
-        path: "/payment/payment-receipt",
+        path: '/badminton/registration/payment-method/payment-receipt',
         element: <PaymentReceipt />,
       },
       {
-        path: "/badminton/bylaws",
-        element: <Bylaws />,
+        path: '/badminton/bylaws',
+        element: <BadmintonBylaws />,
       },
       {
-        path: "/badminton/waiver-form",
-        element: <WaiverForm />,
+        path: '/badminton/waiver-form',
+        element: <BadmintonWaiverForm />,
       },
       {
-        path: "/badminton/gallery",
-        element: <Gallery />,
+        path: '/badminton/gallery',
+        element: <BadmintonGallery />,
       },
       {
-        path: "/badminton/score",
-        element: <Score />,
+        path: '/badminton/score',
+        element: <BadmintonScore />,
       },
       {
-        path: "/soccer/registration",
-        element: <Registration />,
+        path: '/soccer/registration',
+        element: <SoccerRegistration />,
       },
       {
-        path: "/soccer/bylaws",
-        element: <Bylaws />,
+        path: '/soccer/bylaws',
+        element: <SoccerBylaws />,
       },
       {
-        path: "/soccer/waiver-form",
-        element: <WaiverForm />,
+        path: '/soccer/waiver-form',
+        element: <SoccerWaiverForm />,
       },
       {
-        path: "/soccer/gallery",
-        element: <Gallery />,
+        path: '/soccer/gallery',
+        element: <SoccerGallery />,
       },
       {
-        path: "/soccer/score",
-        element: <Score />,
+        path: '/soccer/score',
+        element: <SoccerScore />,
       },
+
     ],
   },
   // {
@@ -109,6 +114,7 @@ const routes = createBrowserRouter([
   //     path: '/register',
   //     element: <Register />,
   // },
+
 ]);
 
 export default routes;
