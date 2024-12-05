@@ -11,8 +11,7 @@ const PaymentSuccess = () => {
     const sessionId = urlParams.get("session_id");
 
     fetch(
-      `${
-        import.meta.env.VITE_API_URL}/event/session-status?session_id=${sessionId}`
+      `https://newsite.ajkerkhobor.news/api/event/session-status?session_id=${sessionId}`
     )
       .then((res) => res.json())
       .then((data) => {
