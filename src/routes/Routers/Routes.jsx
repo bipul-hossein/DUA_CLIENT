@@ -60,7 +60,7 @@ const routes = createBrowserRouter([
         element: <QrCodeFonZelle />,
       },
       {
-        path: '/badminton/registration/payment-method/payment-success',
+        path: '/payment/payment-success',
         element: <PaymentSuccess />,
       },
       {

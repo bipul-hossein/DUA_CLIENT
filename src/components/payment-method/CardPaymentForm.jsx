@@ -12,7 +12,7 @@ const CardPaymentForm = () => {
   // Create a Checkout Session
   const fetchClientSecret = useCallback(() => {
     return fetch(
-      `${import.meta.env.VITE_API_URL}/event/create-checkout-session`,
+      `https://newsite.ajkerkhobor.news/api/event/create-checkout-session`,
       {
         method: "POST",
       }
