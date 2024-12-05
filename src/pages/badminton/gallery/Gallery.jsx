@@ -1,7 +1,7 @@
 import React from 'react';
 import PhotoGallery from '../../../components/photo-gallery/PhotoGallery';
 
-const Gallery = () => {
+const BadmintonGallery = () => {
     return (
         <>
             <PhotoGallery />
@@ -9,4 +9,4 @@ const Gallery = () => {
     );
 };
 
-export default Gallery;
+export default BadmintonGallery;

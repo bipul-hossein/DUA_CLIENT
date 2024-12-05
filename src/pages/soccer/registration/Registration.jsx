@@ -1,12 +1,12 @@
 import React from 'react';
-import RegistrationForm from '../../../components/registration-form/RegistrationForm';
+import SoccerRegistrationForm from '../../../components/registration-form/SoccerRegistrationForm';
 
-const Registration = () => {
+const SoccerRegistration = () => {
     return (
         <>
-            <RegistrationForm />
+            <SoccerRegistrationForm />
         </>
     );
 };
 
-export default Registration;
+export default SoccerRegistration;

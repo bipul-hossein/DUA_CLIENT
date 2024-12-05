@@ -12,8 +12,7 @@ const PaymentSuccess = () => {
 
     fetch(
       `${
-        import.meta.env.VITE_API_URL
-      }/event/session-status?session_id=${sessionId}`
+        import.meta.env.VITE_API_URL}/event/session-status?session_id=${sessionId}`
     )
       .then((res) => res.json())
       .then((data) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Bylaws = () => {
+const BadmintonBylaws = () => {
     return (
         <div className='h-screen'>
             bylaws for badminton
@@ -8,4 +8,4 @@ const Bylaws = () => {
     );
 };
 
-export default Bylaws;
+export default BadmintonBylaws;
