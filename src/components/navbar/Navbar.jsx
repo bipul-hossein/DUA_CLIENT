@@ -14,11 +14,11 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { to: "/", icon: <Home />, label: "Home" },
-  { to: "/about-us", icon: <Info />, label: "About Us" },
-  { to: "/events", icon: <Calendar />, label: "Events" },
+  { to: "/", icon: <Home className="h-4 w-4 md:h-6 md:w-6" />, label: "Home" },
+  { to: "/about-us", icon: <Info className="h-4 w-4 md:h-6 md:w-6" />, label: "About Us" },
+  { to: "/events", icon: <Calendar className="h-4 w-4 md:h-6 md:w-6" />, label: "Events" },
   {
-    icon: <Volleyball />,
+    icon: <Volleyball className="h-4 w-4 md:h-6 md:w-6" />,
     label: "Soccer",
     subLinks: [
       { label: "Registration" },
@@ -34,7 +34,7 @@ const menuItems = [
     ],
   },
   {
-    icon: <img src="/badIcon.png" className="h-6 w-6" />,
+    icon: <img src="/badIcon.png" className="h-4 w-4 md:h-6 md:w-6" />,
     label: "Badminton",
     subLinks: [
       { to: "/badminton/registration", label: "Registration" },
@@ -44,8 +44,8 @@ const menuItems = [
       { to: "/badminton/score", label: "Score" },
     ],
   },
-  { to: "/contact-us", icon: <Mail />, label: "Contact Us" },
-  { to: "/donation", icon: <DollarSign />, label: "Donation" },
+  { to: "/contact-us", icon: <Mail className="h-4 w-4 md:h-6 md:w-6" />, label: "Contact Us" },
+  { to: "/donation", icon: <DollarSign className="h-4 w-4 md:h-6 md:w-6" />, label: "Donation" },
 ];
 
 export default function Navbar() {
@@ -159,12 +159,12 @@ export default function Navbar() {
                   }
                 >
                   {item.subLinks ? (
-                    <div className="flex items-center cursor-pointer">
+                    <div className="flex items-center cursor-pointer gap-2">
                       {item.icon}
                       {item?.label}
                     </div>
                   ) : (
-                    <Link to={item.to} className="flex items-center">
+                    <Link to={item.to} className="flex items-center gap-2">
                       {item.icon}
                       {item?.label}
                     </Link>
