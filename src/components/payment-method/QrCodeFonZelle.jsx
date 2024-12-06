@@ -12,7 +12,7 @@ const QrCodeFonZelle = () => {
 
 
     return (
-        <div className="md:my-12 md:w-[50%] mx-auto space-y-6 bg-white p-4 md:p-6 rounded-md">
+        <div className="md:my-12 md:w-[50%] mx-auto space-y-6 bg-gray-100 p-4 md:p-6 rounded-md">
             {/* <h1 className="text-xl font-semibold text-gray-900">Zelle Payment</h1> */}
             {/* <p className="text-gray-600 text-sm md:text-base">
                 Please send payment to uniteddulles@gmail.com via Zelle. Scan the QR code below to complete the

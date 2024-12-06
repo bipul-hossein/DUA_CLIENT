@@ -168,7 +168,7 @@ export default function BadmintonRegistrationForm() {
                                     )}
                                 </div>
                             </div>
-                            <div className="md:border-l flex-1 md:pl-2  md:border-white">
+                            <div className="md:border-l flex-1 md:pl-2  md:border-gray-100">
                                 {/* Player 2 */}
                                 <div>
                                     <label className="block text-base mb-1 font-medium text-gray-700">

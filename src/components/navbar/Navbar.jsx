@@ -20,18 +20,6 @@ const menuItems = [
   {
     icon: <Volleyball className="h-4 w-4 md:h-6 md:w-6" />,
     label: "Soccer",
-    subLinks: [
-      { label: "Registration" },
-      { label: "Bylaws" },
-      { label: "Gallery" },
-      { label: "Waiver Form" },
-      { label: "Score" },
-      // { to: "/soccer/registration", label: "Registration" },
-      // { to: "/soccer/bylaws", label: "Bylaws" },
-      // { to: "/soccer/gallery", label: "Gallery" },
-      // { to: "/soccer/waiver-form", label: "Waiver Form" },
-      // { to: "/soccer/score", label: "Score" },
-    ],
   },
   {
     icon: <img src="/badIcon.png" className="h-4 w-4 md:h-6 md:w-6" />,
@@ -65,17 +53,19 @@ export default function Navbar() {
     }
   };
 
+  const handleMenuClick = (link) => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="bg-[#14649b] w-full border-b-[1px] border-b-gray-400 sticky top-0 z-40">
       {/* Desktop Navigation */}
       <div className="w-full md:w-[80%] md:mx-auto">
         <div className="flex items-center justify-between mr-3 md:mx-0">
           {/* Logo */}
-
           <Link to="/" className="w-[135px] md:h-[66px]">
             <img src="/logo2.png" alt="logo" className="w-[135px] md:h-[66px]" />
           </Link>
-
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
@@ -98,6 +88,7 @@ export default function Navbar() {
                       className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors ${pathname === item?.to &&
                         "text-[#a1c3da] font-bold bg-[#092f48]"
                         }`}
+                      onClick={handleMenuClick}
                     >
                       {item.icon}
                       {item?.label}
@@ -113,6 +104,7 @@ export default function Navbar() {
                             className={`block px-4 py-2 text-gray-100 hover:bg-[#092f48] transition-colors ${pathname === subLink?.to &&
                               "text-[#a1c3da] font-bold bg-[#092f48]"
                               }`}
+                            onClick={handleMenuClick}
                           >
                             {subLink?.label}
                           </Link>
@@ -129,7 +121,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-100 border border-white hover:bg-blue-600 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-100 border border-gray-100 hover:bg-blue-600 focus:outline-none"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -151,20 +143,24 @@ export default function Navbar() {
             {menuItems.map((item, i) => (
               <div key={i}>
                 <div
-                  className={`flex items-center justify-between px-3 py-2 text-gray-100 hover:bg-blue-600 transition-colors ${pathname === item?.to &&
+                  className={`flex items-center justify-between text-gray-100 hover:bg-blue-600 transition-colors cursor-pointer ${pathname === item?.to &&
                     "text-[#a1c3da] font-bold bg-[#092f48]"
                     }`}
-                  onClick={() =>
-                    item.subLinks ? toggleSubMenu(item.label) : null
-                  }
+                  onClick={() => {
+                    if (item.subLinks) {
+                      toggleSubMenu(item.label);
+                    } else {
+                      setIsOpen(false);
+                    }
+                  }}
                 >
                   {item.subLinks ? (
-                    <div className="flex items-center cursor-pointer gap-2">
+                    <div className="flex items-center cursor-pointer gap-2 w-full h-full px-3 py-2">
                       {item.icon}
                       {item?.label}
                     </div>
                   ) : (
-                    <Link to={item.to} className="flex items-center gap-2">
+                    <Link to={item.to} className="flex items-center gap-2 w-full h-full px-3 py-2" onClick={handleMenuClick}>
                       {item.icon}
                       {item?.label}
                     </Link>
@@ -188,6 +184,7 @@ export default function Navbar() {
                         className={`block px-4 py-2 text-gray-100 hover:bg-blue-600 rounded-md transition-colors ${pathname === subLink?.to &&
                           "text-[#a1c3da] font-bold bg-[#092f48]"
                           }`}
+                        onClick={handleMenuClick}
                       >
                         {subLink.label}
                       </Link>

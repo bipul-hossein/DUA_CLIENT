@@ -16,7 +16,7 @@ const SoccerActivities = () => {
                         <img
                             src="/soccer.jpg"
                             alt="Soccer practice"
-                            className="w-full h-full object-cover md:rounded-r-lg"
+                            className="w-full h-full object-cover md:rounded-l-lg"
                             style={{ maxHeight: '400px' }} // Ensure the image doesn’t exceed 400px
                         />
                     </div>
