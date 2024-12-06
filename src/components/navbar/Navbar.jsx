@@ -21,11 +21,16 @@ const menuItems = [
     icon: <Volleyball />,
     label: "Soccer",
     subLinks: [
-      { to: "/soccer/registration", label: "Registration" },
-      { to: "/soccer/bylaws", label: "Bylaws" },
-      { to: "/soccer/gallery", label: "Gallery" },
-      { to: "/soccer/waiver-form", label: "Waiver Form" },
-      { to: "/soccer/score", label: "Score" },
+      { label: "Registration" },
+      { label: "Bylaws" },
+      { label: "Gallery" },
+      { label: "Waiver Form" },
+      { label: "Score" },
+      // { to: "/soccer/registration", label: "Registration" },
+      // { to: "/soccer/bylaws", label: "Bylaws" },
+      // { to: "/soccer/gallery", label: "Gallery" },
+      // { to: "/soccer/waiver-form", label: "Waiver Form" },
+      // { to: "/soccer/score", label: "Score" },
     ],
   },
   {
@@ -66,23 +71,22 @@ export default function Navbar() {
       <div className="w-full md:w-[80%] md:mx-auto">
         <div className="flex items-center justify-between mr-3 md:mx-0">
           {/* Logo */}
-          <div className="max-w-[135px] w-full">
-            <Link to="/">
-              <img src="/logo2.png" alt="logo" />
-            </Link>
-          </div>
+
+          <Link to="/" className="w-[135px] md:h-[66px]">
+            <img src="/logo2.png" alt="logo" className="w-[135px] md:h-[66px]" />
+          </Link>
+
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center">
+            <div className="flex items-center">
               {menuItems.map((item, i) => (
                 <div key={i} className="relative group">
                   {item.subLinks ? (
                     <div
-                      className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors cursor-pointer ${
-                        pathname === item?.to &&
+                      className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors cursor-pointer ${pathname === item?.to &&
                         "text-[#a1c3da] font-bold bg-[#092f48]"
-                      }`}
+                        }`}
                       onClick={() => toggleSubMenu(item.label)}
                     >
                       {item.icon}
@@ -91,10 +95,9 @@ export default function Navbar() {
                   ) : (
                     <Link
                       to={item.to}
-                      className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors ${
-                        pathname === item?.to &&
+                      className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors ${pathname === item?.to &&
                         "text-[#a1c3da] font-bold bg-[#092f48]"
-                      }`}
+                        }`}
                     >
                       {item.icon}
                       {item?.label}
@@ -107,10 +110,9 @@ export default function Navbar() {
                           <Link
                             key={i}
                             to={subLink.to}
-                            className={`block px-4 py-2 text-gray-100 hover:bg-[#092f48] transition-colors ${
-                              pathname === subLink?.to &&
+                            className={`block px-4 py-2 text-gray-100 hover:bg-[#092f48] transition-colors ${pathname === subLink?.to &&
                               "text-[#a1c3da] font-bold bg-[#092f48]"
-                            }`}
+                              }`}
                           >
                             {subLink?.label}
                           </Link>
@@ -142,18 +144,16 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       <div className="md:hidden">
         <div
-          className={`w-64 h-screen border-primary md:rounded-xl bg-[#212121] flex flex-col justify-between fixed md:static inset-y-0 right-0 md:left-0 mt-0 md:mt-0 transform ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          } md:translate-x-0 transition-transform duration-200 ease-in-out z-50`}
+          className={`w-64 h-screen border-primary md:rounded-xl bg-[#212121] flex flex-col justify-between fixed md:static inset-y-0 right-0 md:left-0 mt-0 md:mt-0 transform ${isOpen ? "translate-x-0" : "translate-x-full"
+            } md:translate-x-0 transition-transform duration-200 ease-in-out z-50`}
         >
           <div className="overflow-y-auto h-full max-h-screen pt-2 pb-3 space-y-1 sm:px-3 bg-[#14649b]">
             {menuItems.map((item, i) => (
               <div key={i}>
                 <div
-                  className={`flex items-center justify-between px-3 py-2 text-gray-100 hover:bg-blue-600 transition-colors ${
-                    pathname === item?.to &&
+                  className={`flex items-center justify-between px-3 py-2 text-gray-100 hover:bg-blue-600 transition-colors ${pathname === item?.to &&
                     "text-[#a1c3da] font-bold bg-[#092f48]"
-                  }`}
+                    }`}
                   onClick={() =>
                     item.subLinks ? toggleSubMenu(item.label) : null
                   }
@@ -185,10 +185,9 @@ export default function Navbar() {
                       <Link
                         key={i}
                         to={subLink.to}
-                        className={`block px-4 py-2 text-gray-100 hover:bg-blue-600 rounded-md transition-colors ${
-                          pathname === subLink?.to &&
+                        className={`block px-4 py-2 text-gray-100 hover:bg-blue-600 rounded-md transition-colors ${pathname === subLink?.to &&
                           "text-[#a1c3da] font-bold bg-[#092f48]"
-                        }`}
+                          }`}
                       >
                         {subLink.label}
                       </Link>
