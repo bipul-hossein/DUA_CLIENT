@@ -24,7 +24,7 @@ export default function ActivitiesSection() {
                 minHeight: '500px', // Change fixed height to minHeight
             }}
         >
-            <div className="container mx-auto pb-8 md:pb-0">
+            <div className="container mx-auto pt-8 md:pt-0 pb-8 md:pb-0">
                 <div className="grid md:grid-cols-2 gap-8">
                     <div className="relative group cursor-pointer">
                         <div className="relative overflow-hidden rounded-lg">

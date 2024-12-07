@@ -2,12 +2,12 @@ export default function AboutUs() {
     return (
         <div className="min-h-screen" style={{ backgroundImage: 'url(/path-to-your-image.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="max-w-7xl mx-auto py-12 md:py-20">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg py-6 ">
+                <div className="bg-gray-100/10 backdrop-blur-sm rounded-lg py-6 ">
                     <div className="px-2 md:px-8">
                         {/* <div className="grid md:grid-cols-2 gap-8 items-center"> */}
                         {/* Logo Column */}
                         {/* <div className="flex justify-center">
-                            <div className="bg-white rounded-lg p-8 w-full max-w-md">
+                            <div className="bg-gray-100 rounded-lg p-8 w-full max-w-md">
                                 <img
                                     src="/logo-full.jpg"
                                     alt="Dulles United Association Logo"

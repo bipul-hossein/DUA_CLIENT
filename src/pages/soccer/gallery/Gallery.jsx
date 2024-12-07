@@ -2,7 +2,7 @@ import React from 'react';
 
 const SoccerGallery = () => {
     return (
-        <div>
+        <div className='h-screen'>
             gallery
         </div>
     );

@@ -12,7 +12,7 @@
 
 //   return (
 //     <div className="">
-//       <div className="mx-auto space-y-6 bg-white p-4 md:p-6 rounded-md">
+//       <div className="mx-auto space-y-6 bg-gray-100 p-4 md:p-6 rounded-md">
 //         <h1 className="text-xl font-semibold text-gray-900">Zelle Payment</h1>
 
 //         <p className="text-gray-600 text-sm md:text-base">

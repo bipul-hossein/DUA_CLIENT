@@ -26,7 +26,7 @@ const PaymentSuccess = () => {
 
   return (
     <div className="flex flex-col items-center justify-center md:min-h-screen bg-background">
-      <div className="mx-auto space-y-6 bg-white/20 p-4 md:p-6 rounded-md px-4">
+      <div className="mx-auto space-y-6 bg-gray-100/20 p-4 md:p-6 rounded-md px-4">
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="bg-green-500 rounded-full p-4">
             <CheckIcon className="h-8 w-8 text-gray-100" />

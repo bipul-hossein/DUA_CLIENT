@@ -65,7 +65,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-bold mb-4">Media Partner:</h3>
                         <div className="space-y-4">
-                            <p>নিউজবিডিইউএস ওয়াশিংটনডিসি</p>
+                            {/* <p>নিউজবিডিইউএস ওয়াশিংটনডিসি</p> */}
                         </div>
                     </div>
                 </div>

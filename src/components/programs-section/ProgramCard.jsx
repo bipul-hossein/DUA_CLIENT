@@ -5,7 +5,7 @@ import { Heart } from 'lucide-react'
 
 export default function ProgramCard({ title, description, imageUrl, onDonate }) {
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+        <div className="bg-gray-100 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
             <div className="relative h-48">
                 <img
                     src={imageUrl}

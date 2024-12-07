@@ -33,8 +33,8 @@ const PaymentReceipt = () => {
 
     return (
         <div className="flex justify-center items-center md:min-h-screen bg-gray-100">
-            <div className="max-w-full p-4 bg-white shadow-md rounded">
-                <div className="receipt-container w-full p-6 bg-white shadow-md rounded" id="receipt" style={{ fontSize: '12px' }}>
+            <div className="max-w-full p-4 bg-gray-100 shadow-md rounded">
+                <div className="receipt-container w-full p-6 bg-gray-100 shadow-md rounded" id="receipt" style={{ fontSize: '12px' }}>
                     <div className="receipt-header text-center mb-6">
                         <h1 className="text-3xl font-bold text-gray-600" style={{ fontSize: '24px' }}>Payment Receipt</h1>
                         <p style={{ fontSize: '14px', color: '#555' }}>This receipt has been generated electronically.</p>
