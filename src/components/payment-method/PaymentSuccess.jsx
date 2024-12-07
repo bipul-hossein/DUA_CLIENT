@@ -11,7 +11,7 @@ const PaymentSuccess = () => {
     const sessionId = urlParams.get("session_id");
 
     fetch(
-      `https://newsite.ajkerkhobor.news/api/event/session-status?session_id=${sessionId}`
+      `http://localhost:5000/api/event/session-status?session_id=${sessionId}`
     )
       .then((res) => res.json())
       .then((data) => {

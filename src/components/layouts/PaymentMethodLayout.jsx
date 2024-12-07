@@ -71,7 +71,7 @@ const PaymentMethodLayout = () => {
           <div className="flex justify-center mt-4">
             {selectedMethod === "card" ? (
               <Elements stripe={stripePromise}>
-                <CardPaymentForm />
+                <CardPaymentForm formDataContext={formDataContext} />
               </Elements>
             ) : (
               <Zelle />
