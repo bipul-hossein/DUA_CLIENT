@@ -1,17 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
 export const RegistrationContext = createContext();
 
 export const RegistrationProvider = ({ children }) => {
   const [formDataContext, setFormDataContext] = useState({
     personalInfo: {
-      fullName: '',
-      address: '',
-      phoneNumber: '',
-      gender: '',
-      email: ''
+      fullName: "",
+      address: "",
+      phoneNumber: "",
+      gender: "",
+      email: "",
     },
-    paymentMethod: '',
+    paymentMethod: "",
   });
 
   return (
