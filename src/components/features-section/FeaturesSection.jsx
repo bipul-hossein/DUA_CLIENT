@@ -23,7 +23,7 @@ const cards = [
 
 export default function GetInvolved() {
   return (
-    <section className="py-16 px-2 md:px-0 max-w-7xl mx-auto">
+    <section className="py-8 md:py-16 px-2 md:px-0 max-w-7xl mx-auto">
       <div className="text-center mb-6 md:mb-12">
         <h2 className="text-3xl font-bold mb-2 md:mb-4">GET INVOLVED</h2>
         <p className="max-w-2xl mx-auto">

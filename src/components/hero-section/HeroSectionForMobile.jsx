@@ -75,15 +75,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 const images = [
-    "/images/banner/2.jpg",
-    "/images/banner/1.jpg",
-    "/images/banner/3.jpg",
-    "/images/banner/4.jpg",
+    "/images/banner/mobile/2.jpg",
+    "/images/banner/mobile/1.jpg",
+
 ];
 
-export default function HeroSection() {
+const HeroSectionForMobile = () => {
     return (
-        <div className="relative swiper-container container mx-auto md:mt-6">
+        <div className="relative swiper-container container mx-auto md:mt-6 block md:hidden">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 effect="fade"
@@ -105,7 +104,7 @@ export default function HeroSection() {
                             <img
                                 src={image}
                                 alt={`Slide ${index + 1}`}
-                                className="object-cover w-full h-full rounded-md"
+                                className="object-cover h-full rounded-md"
                             />
                         </div>
                     </SwiperSlide>
@@ -113,16 +112,13 @@ export default function HeroSection() {
             </Swiper>
 
             {/* Text Section with z-index and pointer-events-none */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-100 px-4 z-10 pointer-events-none bg-black bg-opacity-40 rounded">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-100 px-4 z-10 pointer-events-none bg-black bg-opacity-50 rounded">
                 <h2 className="text-2xl md:text-5xl font-bold mb-2">
                     Welcome to DULLES UNITED ASSOCIATION
                 </h2>
                 <h1 className="text-xl md:text-2xl font-light md:font-semibold mb-6">
                     Non-Profit Organization serving in Northern Virginia
                 </h1>
-                <p className='text-lg hidden md:inline-flex'>
-                    Dulles United Association is a 501(c3) non-profit organization serving in Northern Virginia to promote and provide social & sports opportunities to individuals. Our vision is to support our community by organizing various sports and social events. We are committed to ensuring that each of our members is treated with equal opportunity regardless of their ethnicity, religion, and gender.
-                </p>
             </div>
 
             {/* Pagination and Navigation Controls with pointer-events-auto */}
@@ -132,3 +128,5 @@ export default function HeroSection() {
         </div>
     );
 }
+
+export default HeroSectionForMobile;
