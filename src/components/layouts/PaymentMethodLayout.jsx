@@ -5,10 +5,6 @@ import CardPaymentForm from "../payment-method/CardPaymentForm";
 import { Link } from "react-router-dom";
 import ButtonPayment from "../share/button/ButtonPayment";
 
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe("your-publishable-key-here");
-
 const PaymentMethodLayout = () => {
   const [formDataContext, setFormDataContext] = useContext(RegistrationContext);
   const [selectedMethod, setSelectedMethod] = useState(
@@ -70,9 +66,7 @@ const PaymentMethodLayout = () => {
 
           <div className="flex justify-center mt-4">
             {selectedMethod === "card" ? (
-              <Elements stripe={stripePromise}>
-                <CardPaymentForm />
-              </Elements>
+              <CardPaymentForm formDataContext={formDataContext} />
             ) : (
               <Zelle />
             )}
