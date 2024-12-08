@@ -22,7 +22,7 @@ const menuItems = [
     label: "Soccer",
   },
   {
-    icon: <img src="/badIcon.png" className="h-4 w-4 md:h-6 md:w-6" />,
+    icon: <img src="/images/badIcon.png" className="h-4 w-4 md:h-6 md:w-6" />,
     label: "Badminton",
     subLinks: [
       { to: "/badminton/registration", label: "Registration" },
@@ -64,7 +64,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between mr-3 md:mx-0">
           {/* Logo */}
           <Link to="/" className="w-[135px] md:h-[66px]">
-            <img src="/logo2.png" alt="logo" className="w-[135px] md:h-[66px]" />
+            <img src="/images/logo2.png" alt="logo" className="w-[135px] md:h-[66px]" />
           </Link>
 
           {/* Desktop Menu */}

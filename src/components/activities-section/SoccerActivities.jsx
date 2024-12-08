@@ -9,14 +9,14 @@ const SoccerActivities = () => {
                 minHeight: '400px', // Change fixed height to minHeight
             }}
         >
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 pt-3 md:pt-0">
                 <div>
                     {/* Image Side */}
                     <div className="cursor-pointer">
                         <img
-                            src="/soccer.jpg"
+                            src="/images/soccer.jpg"
                             alt="Soccer practice"
-                            className="w-full h-full object-cover md:rounded-l-lg"
+                            className="w-full h-full object-cover rounded-t-md md:rounded-l-lg"
                             style={{ maxHeight: '400px' }} // Ensure the image doesn’t exceed 400px
                         />
                     </div>

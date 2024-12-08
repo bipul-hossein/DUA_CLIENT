@@ -75,10 +75,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 const images = [
-    "/banner/1.jpg",
-    "/banner/2.jpg",
-    "/banner/3.jpg",
-    "/banner/4.jpg",
+    "/images/banner/2.jpg",
+    "/images/banner/1.jpg",
+    "/images/banner/3.jpg",
+    "/images/banner/4.jpg",
 ];
 
 export default function HeroSection() {

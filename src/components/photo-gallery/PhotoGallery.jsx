@@ -2,39 +2,39 @@ import GalleryImage from "./GalleryImage"
 
 const images = [
     {
-        src: '/photo-gallery/1.jpg',
+        src: '/images/photo-gallery/1.jpg',
         alt: 'Group photo of participants'
     },
     {
-        src: '/photo-gallery/2.jpg',
+        src: '/images/photo-gallery/2.jpg',
         alt: 'Soccer game during sunset'
     },
     {
-        src: '/photo-gallery/3.jpg',
+        src: '/images/photo-gallery/3.jpg',
         alt: 'Players on the field'
     },
     {
-        src: '/photo-gallery/4.jpg',
+        src: '/images/photo-gallery/4.jpg',
         alt: 'Evening soccer practice'
     },
     {
-        src: '/photo-gallery/5.jpg',
+        src: '/images/photo-gallery/5.jpg',
         alt: 'Players in action'
     },
     {
-        src: '/photo-gallery/6.jpg',
+        src: '/images/photo-gallery/6.jpg',
         alt: 'Soccer field at dusk'
     },
     {
-        src: '/photo-gallery/7.jpg',
+        src: '/images/photo-gallery/7.jpg',
         alt: 'Players practicing'
     },
     {
-        src: '/photo-gallery/8.jpg',
+        src: '/images/photo-gallery/8.jpg',
         alt: 'Evening practice session'
     },
     {
-        src: '/photo-gallery/9.jpg',
+        src: '/images/photo-gallery/9.jpg',
         alt: 'Soccer field activities'
     }
 ]
