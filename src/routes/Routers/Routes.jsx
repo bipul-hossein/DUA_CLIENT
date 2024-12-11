@@ -61,7 +61,7 @@ const routes = createBrowserRouter([
         element: <QrCodeForZelle />,
       },
       {
-        path: '/payment/payment-complete',
+        path: '/payment/payment-response',
         element: <PaymentResponse />,
       },
       // {

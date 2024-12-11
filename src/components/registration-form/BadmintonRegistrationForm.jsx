@@ -10,6 +10,13 @@ export default function BadmintonRegistrationForm() {
     const navigate = useNavigate();
     const [formDataContext, setFormDataContext] = useContext(RegistrationContext);
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isUserRegistered, setIsUserRegistered] = useState(false); // Simulate registration status
+
+
+
+
     const [player1Image, setPlayer1Image] = useState(null);
     const [player2Image, setPlayer2Image] = useState(null);
     const [player1UploadError, setPlayer1UploadError] = useState(null);
@@ -58,6 +65,7 @@ export default function BadmintonRegistrationForm() {
     };
 
     const onSubmit = async (data) => {
+        setIsSubmitting(true); // Start loading state
 
         try {
             // Upload images to Cloudinary before submitting the form
@@ -86,9 +94,31 @@ export default function BadmintonRegistrationForm() {
             }));
             console.log(formDataContext);
 
-            navigate('/badminton/registration/payment-method');
+
+            // // Simulate a check for existing user registration
+            // if (isUserRegistered) {
+            //     setIsModalOpen(true); // Open modal
+            //     setIsSubmitting(false);
+            //     return;
+            // }
+
+            // navigate('/badminton/registration/payment-method'); // Proceed to next page
+
+
+            // Simulate registration check or actual logic
+            setTimeout(() => {
+                // After 2 seconds, stop loading
+                setIsSubmitting(false); // Reset loading state
+                if (isUserRegistered) {
+                    setIsModalOpen(true); // Show modal if user is already registered
+                } else {
+                    navigate('/badminton/registration/payment-method'); // Proceed to next page if user is not registered
+                }
+            }, 2000); // Simulate delay (2 seconds)
+
         } catch (err) {
             alert('There was an error uploading the images. Please try again.');
+            setIsSubmitting(false); // Handle error
         }
     };
 
@@ -380,11 +410,40 @@ export default function BadmintonRegistrationForm() {
 
                         {/* Submit Button */}
                         <div className="pt-2 md:pt-4 flex justify-end">
-                            <ButtonPayment title="Next" />
+                            <ButtonPayment
+                                title={isSubmitting ? 'Loading...' : 'Next'}
+                                disabled={isSubmitting}
+                                className="w-full md:w-auto"
+                            />
+
                         </div>
+
                     </fieldset>
                 </form>
             </div>
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
+                    <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+                        <button
+                            className="absolute top-2 right-2 text-xl font-semibold text-gray-700"
+                            onClick={() => setIsModalOpen(false)}
+                        >
+                            &times;
+                        </button>
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">User Already Registered</h2>
+                        <p className="text-lg text-gray-600">You are already registered. Please check your details or contact support.</p>
+                        <div className="mt-6 flex justify-end">
+                            <button
+                                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                                onClick={() => setIsModalOpen(false)}
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div>
     );
 }

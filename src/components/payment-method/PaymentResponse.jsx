@@ -1,23 +1,17 @@
 import React from 'react';
 import PaymentSuccess from './PaymentSuccess';
+import PaymentFailed from './PaymentFailed';
 
 const PaymentResponse = () => {
-  const status = "success"
-
+  const status = "success";
 
   return (
     <div>
       {status === 'success' ? (
         <PaymentSuccess />
       ) : status === 'failed' ? (
-        <div className="status-failed">
-          Payment Failed
-        </div>
-      ) : (
-        <div className="status-pending">
-          Payment Pending
-        </div>
-      )}
+        <PaymentFailed />
+      ) : null}
     </div>
   );
 };
