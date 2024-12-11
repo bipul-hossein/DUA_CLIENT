@@ -122,7 +122,7 @@ const CardPaymentForm = ({ formDataContext }) => {
   );
 
   const fetchClientSecret = useCallback(() => {
-    return fetch(`http://localhost:5000/api/event/create-checkout-session`, {
+    return fetch(`https://newsite.ajkerkhobor.news/api/event/create-checkout-session`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

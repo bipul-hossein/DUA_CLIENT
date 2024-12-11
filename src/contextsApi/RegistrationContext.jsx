@@ -5,11 +5,16 @@ export const RegistrationContext = createContext();
 export const RegistrationProvider = ({ children }) => {
   const [formDataContext, setFormDataContext] = useState({
     personalInfo: {
-      fullName: "",
-      address: "",
-      phoneNumber: "",
-      gender: "",
-      email: "",
+      teamName: "",
+      division: "",
+      player1FullName: "",
+      player1Email: "",
+      player1PhoneNumber: "",
+      player1Image: "",
+      player2FullName: "",
+      player2Email: "",
+      player2PhoneNumber: "",
+      player2Image: "",
     },
     paymentMethod: "",
   });

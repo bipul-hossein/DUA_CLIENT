@@ -8,7 +8,7 @@ const MainLayout = () => {
     return (
         <div className="font-display">
             <Navbar />
-            <div className="w-full md:w-[80%] md:mx-auto">
+            <div className="w-full md:w-[80%] md:mx-auto px-2">
                 <ScrollToTop />
                 <Outlet />
             </div>

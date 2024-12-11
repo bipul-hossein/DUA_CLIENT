@@ -52,14 +52,16 @@ body {
 /* slider css start */
 @media (max-width: 767px) {
   .swiper-container {
-    width: 100%;
+    /* width: 100%; */
+    min-width: 100%;
     max-height: 250px;
     overflow: hidden;
     position: relative;
   }
   .swiper {
-  width: 100%;
-  max-height: 250px !important;
+    /* width: 100%; */
+    min-width: 100%;
+    max-height: 250px !important;
   }
   .swiper-pagination {
     bottom: 5px !important;
@@ -72,6 +74,7 @@ body {
     background-color: red;
   }
 }
+
 
 
 
