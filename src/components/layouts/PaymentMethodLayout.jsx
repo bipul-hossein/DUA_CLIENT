@@ -12,66 +12,6 @@ const PaymentMethodLayout = () => {
     formDataContext.paymentMethod || "card"
   );
 
-
-
-
-  const stripePromise = loadStripe("pk_test_51M65RLSIrCWJQylGhY5H7fIcgSgxS5xTztCkFIc2bnmTw1Uj4wjFnwVEbYg1DUdI7pEBc7fmTTHrJye8CESMtHJ000YHQOk1rG");
-
-  const playerInfo = formDataContext?.personalInfo;
-
-  const bodyData = {
-    teamName: playerInfo?.teamName,
-    division: playerInfo?.division?.toUpperCase(),
-    amount: formDataContext?.teamFee,
-    player1Name: playerInfo?.player1FullName,
-    player2Name: playerInfo?.player2FullName,
-    player1Email: playerInfo?.player1Email,
-    player2Email: playerInfo?.player2Email,
-    player1Phone: playerInfo?.player1PhoneNumber || "",
-    player2Phone: playerInfo?.player2PhoneNumber || "",
-    event: "Badminton Registration",
-  };
-
-
-
-
-
-  // Create a Checkout Session
-  const fetchClientSecret = useCallback(async () => {
-    try {
-      const response = await fetch(
-        `https://newsite.ajkerkhobor.news/api/event/create-checkout-session`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(bodyData),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(
-          `Failed to create checkout session: ${response.statusText}`
-        );
-      }
-
-      const data = await response.json();
-      if (!data?.clientSecret) {
-        throw new Error("Client secret is missing in the response");
-      }
-
-      return data.clientSecret;
-    } catch (error) {
-      console.error("Error fetching client secret:", error);
-      return null; // Return null or handle appropriately to prevent further issues
-    }
-  }, [bodyData]);
-
-  const options = { fetchClientSecret };
-
-
-
   useEffect(() => {
     if (!formDataContext.paymentMethod) {
       setFormDataContext((prevData) => ({
@@ -125,7 +65,7 @@ const PaymentMethodLayout = () => {
 
           <div className="flex justify-center mt-4">
             {selectedMethod === "card" ? (
-              <CardPaymentForm formDataContext={formDataContext} stripePromise={stripePromise} options={options} />
+              <CardPaymentForm formDataContext={formDataContext} />
             ) : (
               <Zelle />
             )}
