@@ -36,6 +36,10 @@ const images = [
     {
         src: '/images/photo-gallery/9.jpg',
         alt: 'Soccer field activities'
+    },
+    {
+        src: '/images/photo-gallery/10.jpg',
+        alt: 'Soccer field activities'
     }
 ]
 
@@ -48,7 +52,7 @@ export default function PhotoGallery() {
                 <div className="rounded-xl py-4"
                 // style={{ backgroundImage: 'radial-gradient(ellipse closest-corner at center, white 30%, #9fbed1 100%)' }}
                 >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {images.map((image, index) => (
                             <GalleryImage
                                 key={index}

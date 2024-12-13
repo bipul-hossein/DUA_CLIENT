@@ -5,10 +5,9 @@ import {
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
+import { STRIPE_PUBLIC_SECRET } from "../../config";
 
-const stripePromise = loadStripe(
-  "pk_test_51M65RLSIrCWJQylGhY5H7fIcgSgxS5xTztCkFIc2bnmTw1Uj4wjFnwVEbYg1DUdI7pEBc7fmTTHrJye8CESMtHJ000YHQOk1rG"
-);
+const stripePromise = loadStripe(STRIPE_PUBLIC_SECRET);
 
 const CardPaymentForm = ({ formDataContext }) => {
   const navigate = useNavigate();
@@ -37,16 +36,13 @@ const CardPaymentForm = ({ formDataContext }) => {
       return null;
     }
 
-    const response = await fetch(
-      `http://localhost:5000/api/event/create-checkout-session`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bodyData),
-      }
-    );
+    const response = await fetch(`${APP_URL}/event/create-checkout-session`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bodyData),
+    });
     const data = await response.json();
     return data?.data?.clientSecret;
   }, [bodyData, playerInfo?.division]);

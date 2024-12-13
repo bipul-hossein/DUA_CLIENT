@@ -1,74 +1,82 @@
 export default function AboutUs() {
     return (
         <div className="min-h-screen" style={{ backgroundImage: 'url(/path-to-your-image.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="max-w-7xl mx-auto py-12 md:py-20">
-                <div className="bg-gray-100/10 backdrop-blur-sm rounded-lg py-6 ">
-                    <div className="px-2 md:px-8">
-                        {/* <div className="grid md:grid-cols-2 gap-8 items-center"> */}
-                        {/* Logo Column */}
-                        {/* <div className="flex justify-center">
-                            <div className="bg-gray-100 rounded-lg p-8 w-full max-w-md">
-                                <img
-                                    src="/logo-full.jpg"
-                                    alt="Dulles United Association Logo"
-                                    className="w-full h-auto"
-                                />
-                            </div>
-                        </div> */}
+            <div className="max-w-7xl mx-auto md:py-12">
+                <div className="bg-gray-100 backdrop-blur-sm rounded-lg py-6 ">
+                    <div className=" text-gray-900 py-6 px-6">
+                        <h1 className="text-3xl font-bold">About Us</h1>
+                        <p className="mt-2 text-xl">Building Community, Inspiring Excellence</p>
+                    </div>
 
-                        {/* Content Column */}
-                        <div className="text-gray-100">
-                            <h1 className="text-xl md:text-3xl font-bold text-blue-100">
-                                DULLES UNITED ASSOCIATION
-                            </h1>
+                    <div className="p-6 space-y-6">
+                        <section>
+                            <p className="text-gray-900 leading-relaxed">
+                                At Dulles United Association, we believe in the power of community. Based in Northern Virginia, our nonprofit organization is dedicated to fostering unity, empowering youth, and creating opportunities for growth through education, support programs, cultural engagement, and sports activities.
+                            </p>
+                        </section>
 
-                            <h2 className="text-lg font-semibold text-blue-200">
-                                Non-Profit Organization serving in Northern Virginia
-                            </h2>
+                        <section>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Our Mission</h2>
+                            <p className="text-gray-900 leading-relaxed">
+                                Our mission is to enrich lives and strengthen the community by promoting education, providing essential resources, encouraging active lifestyles, and celebrating diversity. We are committed to helping individuals of all ages and backgrounds realize their potential and contribute to a vibrant, inclusive community.
+                            </p>
+                        </section>
 
-                            <div className="space-y-4 text-blue-50 mt-4">
-                                <p>
-                                    Dulles United Association is a 501(c)3 non-profit organization serving in Northern
-                                    Virginia to promote and provide social & sports opportunities to individuals. Our vision is
-                                    to support our community by organizing various sports and social events. We are
-                                    committed to ensure that each of our member are treated with equal opportunity
-                                    regardless of their ethnicity, religion and gender.
-                                </p>
+                        <section>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Our Values</h2>
+                            <ul className="list-disc pl-5 space-y-2 text-gray-900">
+                                <li><span className="font-semibold">Integrity:</span> We prioritize transparency, accountability, and trust in everything we do.</li>
+                                <li><span className="font-semibold">Community:</span> We thrive on collaboration and partnership, bringing people together for a common purpose.</li>
+                                <li><span className="font-semibold">Empowerment:</span> We inspire individuals to achieve their goals and make a positive impact.</li>
+                                <li><span className="font-semibold">Inclusivity:</span> We celebrate diversity, ensuring everyone has a place to belong and succeed.</li>
+                            </ul>
+                        </section>
 
-                                <p>
-                                    As a social and sports organization it is our vision to provide the best possible
-                                    environment for our members to reach their maximum sports potential through
-                                    excellence in coaching and support. If you are excited to join Dulles United then please
-                                    visit our Membership Registration area and complete the registration process. We
-                                    welcome you to our exciting journey. Welcome to Dulles United!
-                                </p>
+                        <section>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-3">What We Do</h2>
+                            <p className="text-gray-900 mb-3">
+                                At Dulles United Association, we focus on creating programs and events that address community needs while fostering engagement and connection.
+                            </p>
+                            <ul className="list-disc pl-5 space-y-2 text-gray-900">
+                                <li><span className="font-semibold">Educational Opportunities:</span> Offering workshops, tutoring, and resources to help students and adults succeed academically and professionally.</li>
+                                <li><span className="font-semibold">Community Support:</span> Organizing food drives, clothing donations, and financial assistance programs to support families in need.</li>
+                                <li><span className="font-semibold">Sports & Recreation:</span>
+                                    <ul className="list-circle pl-5 mt-2 space-y-2">
+                                        <li><span className="font-semibold">Annual Tournaments:</span> Our badminton and soccer tournaments are highlights of the year, bringing the community together for fun, fitness, and friendly competition.</li>
+                                        <li><span className="font-semibold">Youth Soccer Programs:</span> We host weekly soccer practice sessions to engage and inspire local youth, helping them build teamwork, confidence, and a passion for the game.</li>
+                                    </ul>
+                                </li>
+                                <li><span className="font-semibold">Cultural & Social Events:</span> Hosting celebrations and outreach activities that unite our diverse community and promote understanding.</li>
+                            </ul>
+                        </section>
 
-                                <h3 className="text-2xl font-bold text-blue-200 mt-8">Dulles United Management</h3>
-                                <p>The following members are primarily responsible for team management:</p>
-                                <ul className="list-disc list-inside space-y-2">
-                                    <li>Masud Ahsan - 571-484-0700</li>
-                                    <li>Dilal Ahmed - 703-623-6943</li>
-                                    <li>Bijon Singh - 718-704-4808</li>
-                                    <li>Mohammed Basit (Mamun) - 917-770-3399</li>
-                                    <li>Sayek Ahmed - 703-966-3474</li>
-                                    <li>Amdadul Haque (Suhel) - 347-484-9079</li>
-                                    <li>Mostak Hossain - 973-356-4823</li>
-                                    <li>Sabbir Asif - 718-314-9057</li>
-                                </ul>
-                            </div>
+                        <section>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Our Impact</h2>
+                            <p className="text-gray-900 mb-3">In the past year, we have:</p>
+                            <ul className="list-disc pl-5 space-y-2 text-gray-900">
+                                <li>Supported over 200 students with educational resources and mentoring.</li>
+                                <li>Held 20+ weekly youth soccer practices, benefiting more than 100 young athletes.</li>
+                                <li>Organized community-favorite badminton and soccer tournaments with widespread participation.</li>
+                                <li>Provided essential aid, including 1,000+ meals, to families in need.</li>
+                            </ul>
+                        </section>
 
-                            <div className="pt-4">
-                                {/* <button
-                                    to=""
-                                    className="mt-8 px-8 py-3 text-gray-100 rounded-md bg-[#14649b] hover:bg-[#092f48] transition-colors"
-                                >
-                                    Join Our Community
-                                </button> */}
-                            </div>
-                        </div>
+                        <section>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Get Involved</h2>
+                            <p className="text-gray-900 leading-relaxed">
+                                Be a part of our mission to empower, inspire, and unite. Whether as a volunteer, donor, or participant, your support helps us make a meaningful impact.
+                            </p>
+                            <p className="text-gray-900 leading-relaxed mt-3">
+                                Join us today to help us build a stronger, healthier, and more connected Northern Virginia. Together, we can create opportunities, celebrate diversity, and make lasting change.
+                            </p>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
     )
 }
+
+import React from 'react';
+
+

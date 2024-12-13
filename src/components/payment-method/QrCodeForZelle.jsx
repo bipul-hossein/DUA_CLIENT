@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 
-const QrCodeFonZelle = () => {
+const QrCodeForZelle = () => {
     const [submitMessage, setSubmittedMessage] = useState("")
 
 
@@ -21,7 +21,7 @@ const QrCodeFonZelle = () => {
             <div className="flex flex-col items-center">
                 <div className="w-full h-full">
                     <img
-                        src="/QrCodeZelle.jpg"
+                        src="/images/QrCodeZelle.jpg"
                         alt="Zelle Payment QR Code"
                         fill
                         className="object-contain"
@@ -52,4 +52,4 @@ const QrCodeFonZelle = () => {
     );
 };
 
-export default QrCodeFonZelle;
+export default QrCodeForZelle;

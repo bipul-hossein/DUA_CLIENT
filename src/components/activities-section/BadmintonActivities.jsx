@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BadmintonActivities = () => {
     return (
@@ -42,6 +43,9 @@ const BadmintonActivities = () => {
                         <p>
                             Location: 11400 South Lakes Dr, Reston, VA 20191
                         </p>
+
+                        <a href="https://photos.app.goo.gl/VysSKhwGkrtjDDQPA" className="text-green-600 font-semibold underline hover:text-green-800" target="_blank" rel="noopener noreferrer">See Some Moments</a>
+
                     </div>
                 </div>
 

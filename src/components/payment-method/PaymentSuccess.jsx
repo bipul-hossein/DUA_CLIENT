@@ -1,81 +1,40 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PaymentSuccess = () => {
-  const [status, setStatus] = useState(null);
-  const [customerEmail, setCustomerEmail] = useState("");
-  const isFetched = useRef(false);
-
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const sessionId = urlParams.get("session_id");
-  const teamName = urlParams.get("teamName");
-  const division = urlParams.get("division");
-  const player1Name = urlParams.get("player1Name");
-  const player2Name = urlParams.get("player2Name");
-  const player1Email = urlParams.get("player1Email");
-  const player2Email = urlParams.get("player2Email");
-  const player1Phone = urlParams.get("player1Phone");
-  const player2Phone = urlParams.get("player2Phone");
-  const memo = urlParams.get("memo");
-
-  useEffect(() => {
-    if (isFetched.current) return; // Prevent multiple fetches
-    isFetched.current = true;
-
-    fetch(
-      `http://localhost:5000/api/event/session-status?session_id=${sessionId}&teamName=${teamName}&division=${division}&player1Name=${player1Name}&player2Name=${player2Name}&player1Email=${player1Email}&player2Email=${player2Email}&player1Phone=${player1Phone}&player2Phone=${player2Phone}&memo=${memo}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setStatus(data.status);
-        setCustomerEmail(data.customer_email);
-      });
-  }, []);
-
-  if (status === "open") {
-    return <Navigate to="/badminton/registration/payment-method" />;
-  }
-
   return (
     <div className="flex flex-col items-center justify-center md:min-h-screen bg-background">
-      <div className="mx-auto space-y-6 bg-gray-100/20 p-4 md:p-6 rounded-md px-4">
-        <div className="flex flex-col items-center justify-center space-y-4">
+      <div className="mx-auto space-y-6 bg-gray-100 shadow-lg p-6 md:p-8 rounded-lg">
+        <div className="flex flex-col items-center justify-center text-center">
           <div className="bg-green-500 rounded-full p-4">
-            <CheckIcon className="h-8 w-8 text-gray-100" />
+            <CheckIcon className="h-8 w-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold">Payment Successful</h1>
-          <p className="text-muted-foreground">
-            Thank you for your purchase! Your transaction was completed
+          <h1 className="text-3xl font-bold text-gray-800 my-4 ">
+            Payment Successful
+          </h1>
+          <p className="text-gray-600">
+            Thank you for registering! Your transaction was completed
             successfully.
           </p>
+          <p className="text-gray-600">
+            Please check your email inbox or spam folder for the registration
+            details.
+          </p>
         </div>
-        <div>
-          <div>
-            <h3>Order Summary</h3>
-          </div>
-          {/* <div className="grid gap-4">
-            <div className="grid grid-cols-2 items-center">
-              <span className="text-muted-foreground">Total:</span>
-              <span className="text-right font-medium">$99.00</span>
-            </div>
-          </div> */}
-          <div className="flex justify-between flex-wrap-reverse gap-4 mt-4">
-            <Link
-              to="/"
-              className="bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors"
-              prefetch={false}
-            >
-              Return to Home
-            </Link>
-            <Link
-              to=""
-              className="bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors"
-              prefetch={false}
-            >
-              Download payment receipt
-            </Link>
-          </div>
+        <div className="flex justify-between flex-wrap-reverse gap-4 mt-6">
+          <Link
+            to="/"
+            className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+            prefetch={false}
+          >
+            Return to Home
+          </Link>
+          <Link
+            to=""
+            className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+            prefetch={false}
+          >
+            View Receipt
+          </Link>
         </div>
       </div>
     </div>

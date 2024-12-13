@@ -6,9 +6,8 @@ import Events from '../../pages/events/Events';
 import ContactUs from '../../pages/contact-us/ContactUs';
 import Donation from '../../pages/donation/Donation';
 import PaymentMethod from '../../pages/badminton/registration/PaymentMethod';
-import PaymentReceipt from '../../components/payment-method/PaymentReceipt';
-import PaymentSuccess from '../../components/payment-method/PaymentSuccess';
-import QrCodeFonZelle from '../../components/payment-method/QrCodeFonZelle';
+// import PaymentReceipt from '../../components/payment-method/PaymentReceipt';
+// import PaymentSuccess from '../../components/payment-method/PaymentSuccess';
 import BadmintonRegistration from '../../pages/badminton/registration/Registration';
 import BadmintonBylaws from '../../pages/badminton/bylaws/Bylaws';
 import BadmintonGallery from '../../pages/badminton/gallery/Gallery';
@@ -19,6 +18,8 @@ import SoccerWaiverForm from '../../pages/soccer/waiver-form/WaiverForm';
 import SoccerGallery from '../../pages/soccer/gallery/Gallery';
 import SoccerScore from '../../pages/soccer/score/Score';
 import BadmintonWaiverForm from '../../pages/badminton/waiver-form/WaiverForm';
+import QrCodeForZelle from '../../components/payment-method/QrCodeForZelle';
+import PaymentResponse from '../../components/payment-method/PaymentResponse';
 
 
 const routes = createBrowserRouter([
@@ -57,16 +58,16 @@ const routes = createBrowserRouter([
       },
       {
         path: '/badminton/registration/payment-method/zelle-qrcode',
-        element: <QrCodeFonZelle />,
+        element: <QrCodeForZelle />,
       },
       {
-        path: '/payment/payment-success',
-        element: <PaymentSuccess />,
+        path: '/payment/payment-response',
+        element: <PaymentResponse />,
       },
-      {
-        path: '/badminton/registration/payment-method/payment-receipt',
-        element: <PaymentReceipt />,
-      },
+      // {
+      //   path: '/badminton/registration/payment-method/payment-receipt',
+      //   element: <PaymentReceipt />,
+      // },
       {
         path: '/badminton/bylaws',
         element: <BadmintonBylaws />,
