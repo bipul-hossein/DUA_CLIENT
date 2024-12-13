@@ -14,7 +14,7 @@ const images = [
 
 const HeroSectionForMobile = () => {
     return (
-        <div className="relative swiper-container container mx-auto md:mt-6 block md:hidden">
+        <div className="relative swiper-container container rounded-md mx-auto md:mt-6 block md:hidden">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 effect="fade"

@@ -121,6 +121,28 @@ export default function ZellePayment() {
               </div>
             )}
           </div>
+          <div className="mb-2">
+            <label className="block text-base mb-1 font-medium text-gray-700">
+              Phone <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              {...register("phone", {
+                required: 'Phone number is required',
+                pattern: {
+                  value: /^[0-9+-]+$/,
+                  message: 'Invalid Phone number'
+                }
+              })}
+              className="border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
+            />
+            {errors.phone && (
+              <div className="mt-1 flex items-center text-sm text-red-500">
+                {errors.phone.message}
+              </div>
+            )}
+          </div>
 
           <div className="mb-2">
             <label className="block text-base mb-1 font-medium text-gray-700">

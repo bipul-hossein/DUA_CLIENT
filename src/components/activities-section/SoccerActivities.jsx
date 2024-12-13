@@ -3,7 +3,7 @@ import React from 'react';
 const SoccerActivities = () => {
     return (
         <section
-            className="mt-12 md:mb-12 md:rounded-lg px-2 md:px-0"
+            className="mt-12 md:mb-12 rounded-lg px-2 md:px-0"
             style={{
                 backgroundImage: 'radial-gradient(ellipse closest-corner at center, white 30%, #9fbed1 100%)',
                 minHeight: '400px', // Change fixed height to minHeight
@@ -16,8 +16,8 @@ const SoccerActivities = () => {
                         <img
                             src="/images/soccer.jpg"
                             alt="Soccer practice"
-                            className="w-full h-full object-cover rounded-t-md md:rounded-l-lg"
-                            style={{ maxHeight: '400px' }} // Ensure the image doesn’t exceed 400px
+                            className="w-full object-cover h-[250px] md:h-auto md:max-h-[400px] md:rounded-r-lg"
+                        // style={{ maxHeight: '400px' }} // Ensure the image doesn’t exceed 400px
                         />
                     </div>
                 </div>

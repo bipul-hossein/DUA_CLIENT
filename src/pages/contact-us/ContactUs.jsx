@@ -157,40 +157,39 @@ export default function ContactUs() {
                         <div className="space-y-8">
                             <div>
                                 <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-                                <p className="text-gray-900 mb-8">
-                                    HERNDON VA | IRS ruling year: 2020 |
-                                    EIN:
-                                    84-5131804
-                                </p>
+
                             </div>
 
                             <div className="space-y-4">
+
+                                <div className="flex items-center space-x-4">
+                                    <Phone className="w-6 h-6 text-blue-500" />
+                                    <p className="text-gray-900"> (917)-770-3399</p>
+                                </div>
                                 <div className="flex items-start space-x-4">
                                     <MapPin className="w-6 h-6 text-blue-500 mt-1" />
                                     <div>
-                                        <p className="text-gray-900">1039 STERLING RD STE 204 HERNDON VA 20170-3840</p>
+                                        <p className="text-gray-900">1039 STERLING RD STE 204 HERNDON VA 20170-3840,</p>
                                         <p className="text-gray-900">United States</p>
                                     </div>
                                 </div>
 
-                                <div className="flex items-center space-x-4">
-                                    <Phone className="w-6 h-6 text-blue-500" />
-                                    <p className="text-gray-900">+1 (222) 345 6789</p>
-                                </div>
 
                                 <div className="flex items-center space-x-4">
                                     <Mail className="w-6 h-6 text-blue-500" />
-                                    <p className="text-gray-900">info@mywebsite.com</p>
+                                    <p className="text-gray-900">uniteddulles@gmail.com</p>
                                 </div>
+                                <p className="text-gray-900 mb-8">EIN: 84-5131804
+                                </p>
                             </div>
                             <div className='w-[320px] overflow-hidden md:w-[480px]'>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.0595680738093!2d-77.3972914!3d38.968307800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6380a41a3a9a7%3A0xf0ae7869510dbd61!2s1039%20Sterling%20Rd%20Suite%20204%2C%20Herndon%2C%20VA%2020170%2C%20USA!5e0!3m2!1sen!2sbd!4v1734069325749!5m2!1sen!2sbd" width="480" height="250" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.0595680738093!2d-77.3972914!3d38.968307800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6380a41a3a9a7%3A0xf0ae7869510dbd61!2s1039%20Sterling%20Rd%20Suite%20204%2C%20Herndon%2C%20VA%2020170%2C%20USA!5e0!3m2!1sen!2sbd!4v1734069325749!5m2!1sen!2sbd" width="350" height="250" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
 
                         {/* Right Column - Contact Form */}
-                        <div>
-                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                        <div className='bg-white md:bg-transparent py-4 md:py-0 px-4 md:px-0 rounded-md'>
+                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 md:space-y-6">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-1">
                                         Name <span className='text-red-600'>*</span>
@@ -248,7 +247,7 @@ export default function ContactUs() {
                                     <textarea
                                         id="message"
                                         {...register("message", { required: "Message is required" })}
-                                        rows={6}
+                                        rows={4}
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
                                     />
                                     {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
@@ -257,7 +256,7 @@ export default function ContactUs() {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-[#14649b] text-gray-900 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6 flex justify-center items-center gap-2"
+                                        className="w-full bg-[#14649b] text-gray-100 py-2 px-4 rounded-md hover:bg-[#0062BD] transition-colors duration-200 mt-6 flex justify-center items-center gap-2"
                                     >
                                         Send Message
                                     </button>

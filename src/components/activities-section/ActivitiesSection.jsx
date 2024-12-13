@@ -18,7 +18,7 @@ const activities = [
 
 export default function ActivitiesSection() {
     return (
-        <section className='md:rounded-lg px-2 md:px-0'
+        <section className='rounded-lg px-2 md:px-0'
             style={{
                 backgroundImage: 'radial-gradient(ellipse closest-corner at center, white 30%, #9fbed1 100%)',
                 minHeight: '500px', // Change fixed height to minHeight
@@ -33,8 +33,9 @@ export default function ActivitiesSection() {
                                 <img
                                     src="/images/group_photo.jpg"
                                     alt="Children's activities"
-                                    className="w-full object-cover md:rounded-r-lg"
-                                    style={{ maxHeight: '500px' }} // Ensure the image doesn’t exceed 500px
+                                    className="w-full object-cover h-[250px] md:h-auto md:max-h-[500px] md:rounded-r-lg"
+                                // className="w-full object-cover md:rounded-r-lg"
+                                // style={{ height: '250px', maxHeight: '500px' }} // Ensure the image doesn’t exceed 500px
                                 />
                             </div>
                         </div>
