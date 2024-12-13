@@ -26,10 +26,10 @@ const menuItems = [
     label: "Badminton",
     subLinks: [
       { to: "/badminton/registration", label: "Registration" },
-      { to: "/badminton/bylaws", label: "Bylaws" },
+      // { to: "/badminton/bylaws", label: "Bylaws" },
       { to: "/badminton/gallery", label: "Gallery" },
-      { to: "/badminton/waiver-form", label: "Waiver Form" },
-      { to: "/badminton/score", label: "Score" },
+      // { to: "/badminton/waiver-form", label: "Waiver Form" },
+      // { to: "/badminton/score", label: "Score" },
     ],
   },
   { to: "/contact-us", icon: <Mail className="h-4 w-4 md:h-6 md:w-6" />, label: "Contact Us" },
