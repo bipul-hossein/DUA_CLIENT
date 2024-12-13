@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Globe, Instagram } from 'lucide-react';
+import { Facebook, Twitter, Globe, Instagram, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -52,13 +52,26 @@ export default function Footer() {
                     </div>
 
                     {/* Contacts */}
-                    <div>
+                    <div className="space-y-4">
                         <h3 className="text-xl font-bold mb-4">Contacts</h3>
-                        <div className="space-y-3 text-gray-100">
-                            <p>+1 (305) 587-3407</p>
-                            <p>info@dullesunited.com</p>
-                            <p>Northern Virginia, USA</p>
+
+                        <div className="flex items-center space-x-4">
+                            <Phone className="w-6 h-6 text-gray-100" />
+                            <p className="text-gray-100"> (917)-770-3399</p>
                         </div>
+                        <div className="flex items-center space-x-4">
+                            <Mail className="w-6 h-6 text-gray-100" />
+                            <p className="text-gray-100">uniteddulles@gmail.com</p>
+                        </div>
+                        <div className="flex items-start space-x-4">
+                            <MapPin className="w-6 h-6 text-gray-100 mt-1" />
+                            <div>
+                                <p className="text-gray-100">1039 STERLING RD STE 204 HERNDON VA 20170-3840,</p>
+                                <p className="text-gray-100">United States</p>
+                            </div>
+                        </div>
+                        <p className="text-gray-100 mb-8">EIN: 84-5131804
+                        </p>
                     </div>
 
                     {/* Media Partner */}
@@ -73,7 +86,7 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="mt-16 pt-8 border-t border-gray-200 text-center text-gray-100 text-sm">
                     <p>
-                        Copyright ©2024 All rights reserved DULLES UNITED.
+                        Copyright ©2024 All rights reserved  Dulles United Association.
                     </p>
                 </div>
             </div>

@@ -241,7 +241,13 @@ export default function BadmintonRegistrationForm() {
                                     </label>
                                     <input
                                         type="tel"
-                                        {...register('player1PhoneNumber', { required: 'Phone Number is required' })}
+                                        {...register('player1PhoneNumber', {
+                                            required: 'Phone Number is required',
+                                            pattern: {
+                                                value: /^[0-9+-]+$/,
+                                                message: "Invalid phone number"
+                                            }
+                                        })}
                                         onChange={(e) => handleInputChange('player1PhoneNumber', e.target.value)}
                                         className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />
@@ -341,7 +347,13 @@ export default function BadmintonRegistrationForm() {
                                     </label>
                                     <input
                                         type="tel"
-                                        {...register('player2PhoneNumber', { required: 'Phone Number is required' })}
+                                        {...register('player2PhoneNumber', {
+                                            required: 'Phone Number is required',
+                                            pattern: {
+                                                value: /^[0-9+-]+$/,
+                                                message: "Invalid phone number"
+                                            }
+                                        })}
                                         onChange={(e) => handleInputChange('player2PhoneNumber', e.target.value)}
                                         className="flex-grow border border-gray-300 focus:ring-[#13679f] focus:border-[#13679f] p-2 md:p-3 w-full rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-gray-600"
                                     />

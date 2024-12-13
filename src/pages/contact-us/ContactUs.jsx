@@ -166,18 +166,16 @@ export default function ContactUs() {
                                     <Phone className="w-6 h-6 text-blue-500" />
                                     <p className="text-gray-900"> (917)-770-3399</p>
                                 </div>
+                                <div className="flex items-center space-x-4">
+                                    <Mail className="w-6 h-6 text-blue-500" />
+                                    <p className="text-gray-900">uniteddulles@gmail.com</p>
+                                </div>
                                 <div className="flex items-start space-x-4">
                                     <MapPin className="w-6 h-6 text-blue-500 mt-1" />
                                     <div>
                                         <p className="text-gray-900">1039 STERLING RD STE 204 HERNDON VA 20170-3840,</p>
                                         <p className="text-gray-900">United States</p>
                                     </div>
-                                </div>
-
-
-                                <div className="flex items-center space-x-4">
-                                    <Mail className="w-6 h-6 text-blue-500" />
-                                    <p className="text-gray-900">uniteddulles@gmail.com</p>
                                 </div>
                                 <p className="text-gray-900 mb-8">EIN: 84-5131804
                                 </p>
@@ -230,12 +228,13 @@ export default function ContactUs() {
                                         type="tel"
                                         id="phone"
                                         {...register("phone", {
+                                            required: 'Phone Number is required',
                                             pattern: {
                                                 value: /^[0-9+-]+$/,
                                                 message: "Invalid phone number"
                                             }
                                         })}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
                                     />
                                     {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>}
                                 </div>
