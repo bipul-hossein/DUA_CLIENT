@@ -4,7 +4,7 @@ import { XCircle } from 'lucide-react';
 
 const PaymentFailed = () => {
     return (
-        <div className="flex flex-col items-center justify-center md:min-h-screen bg-background">
+        <div className="min-h-screen flex flex-col items-center justify-center md:min-h-screen bg-background">
             <div className="mx-auto space-y-6 bg-gray-100 shadow-lg p-6 md:p-8 rounded-lg">
                 <div className="flex flex-col items-center justify-center text-center">
                     <div className="bg-red-500 rounded-full p-4">
@@ -21,14 +21,14 @@ const PaymentFailed = () => {
                 <div className="flex justify-between flex-wrap-reverse gap-4 mt-6">
                     <Link
                         to="/"
-                        className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                        className="bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
                         prefetch={false}
                     >
                         Return to Home
                     </Link>
                     <Link
                         to="/support"
-                        className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                        className="bg-[#14649b] text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
                         prefetch={false}
                     >
                         Contact Support

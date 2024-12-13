@@ -180,9 +180,16 @@ export default function ContactUs() {
                                 <p className="text-gray-900 mb-8">EIN: 84-5131804
                                 </p>
                             </div>
-                            <div className='w-[320px] overflow-hidden md:w-[480px]'>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.0595680738093!2d-77.3972914!3d38.968307800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6380a41a3a9a7%3A0xf0ae7869510dbd61!2s1039%20Sterling%20Rd%20Suite%20204%2C%20Herndon%2C%20VA%2020170%2C%20USA!5e0!3m2!1sen!2sbd!4v1734069325749!5m2!1sen!2sbd" width="350" height="250" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div className="w-full md:w-[480px] h-[250px] overflow-hidden relative">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.0595680738093!2d-77.3972914!3d38.968307800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6380a41a3a9a7%3A0xf0ae7869510dbd61!2s1039%20Sterling%20Rd%20Suite%20204%2C%20Herndon%2C%20VA%2020170%2C%20USA!5e0!3m2!1sen!2sbd!4v1734069325749!5m2!1sen!2sbd"
+                                    className="absolute top-0 left-0 w-full h-full"
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade">
+                                </iframe>
                             </div>
+
                         </div>
 
                         {/* Right Column - Contact Form */}
@@ -196,7 +203,7 @@ export default function ContactUs() {
                                         type="text"
                                         id="name"
                                         {...register("name", { required: "Name is required" })}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
+                                        className="w-full px-4 py-2 border text-gray-900 border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
                                     />
                                     {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
                                 </div>
@@ -215,7 +222,7 @@ export default function ContactUs() {
                                                 message: "Invalid email address"
                                             }
                                         })}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
+                                        className="w-full px-4 text-gray-900 py-2 border border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
                                     />
                                     {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
                                 </div>
@@ -234,7 +241,7 @@ export default function ContactUs() {
                                                 message: "Invalid phone number"
                                             }
                                         })}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
+                                        className="w-full px-4 text-gray-900 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
                                     />
                                     {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>}
                                 </div>
@@ -247,7 +254,7 @@ export default function ContactUs() {
                                         id="message"
                                         {...register("message", { required: "Message is required" })}
                                         rows={4}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
+                                        className="w-full px-4 text-gray-900 py-2 border border-gray-300 rounded-md focus:outline-none f focus:ring-[#13679f] focus:border-[#13679f] focus:border-transparent"
                                     />
                                     {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
                                 </div>

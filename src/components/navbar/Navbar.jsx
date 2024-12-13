@@ -74,7 +74,7 @@ export default function Navbar() {
                 <div key={i} className="relative group">
                   {item.subLinks ? (
                     <div
-                      className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors cursor-pointer ${pathname === item?.to &&
+                      className={`flex flex-col items-center md:px-4 lg:px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors cursor-pointer ${pathname === item?.to &&
                         "text-[#a1c3da] font-bold bg-[#092f48]"
                         }`}
                       onClick={() => toggleSubMenu(item.label)}
@@ -85,7 +85,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       to={item.to}
-                      className={`flex flex-col items-center px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors ${pathname === item?.to &&
+                      className={`flex flex-col items-center md:px-4 lg:px-6 py-2 hover:text-[#a1c3da] hover:bg-[#092f48] transition-colors ${pathname === item?.to &&
                         "text-[#a1c3da] font-bold bg-[#092f48]"
                         }`}
                       onClick={handleMenuClick}

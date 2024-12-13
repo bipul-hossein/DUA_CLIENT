@@ -52,7 +52,8 @@ const PaymentResponse = () => {
   }
 
   return (
-    <div>{status === "success" ? <PaymentSuccess /> : <PaymentFailed />}</div>
+    <div><PaymentSuccess /> </div>
+    // <div>{status === "success" ? <PaymentSuccess /> : <PaymentFailed />}</div>
   );
 };
 
