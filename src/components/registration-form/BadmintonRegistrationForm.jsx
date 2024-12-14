@@ -5,6 +5,7 @@ import { RegistrationContext } from "../../contextsApi/RegistrationContext";
 import { useNavigate } from "react-router-dom";
 import ButtonPayment from "../share/button/ButtonPayment";
 import axios from "axios"; // We will use axios to make requests to Cloudinary.
+import { CLOUD_NAME, UPLOAD_PRESET } from "../../config";
 
 export default function BadmintonRegistrationForm() {
   const navigate = useNavigate();
@@ -48,11 +49,11 @@ export default function BadmintonRegistrationForm() {
 
   // Helper function to handle Cloudinary image upload on form submit
   const handleCloudinaryUpload = async (file) => {
-    const cloudinaryUploadPreset = "foodgrain_image_upload"; // Make sure this is correct
-    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/deblnr6mq/image/upload`; // Replace with your cloud name
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", cloudinaryUploadPreset);
+    formData.append("upload_preset", UPLOAD_PRESET);
+
+    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`; // Replace with your cloud name
 
     try {
       const response = await axios.post(cloudinaryUrl, formData);
