@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
 import { RegistrationContext } from "../../contextsApi/RegistrationContext";
-import Zelle from "../payment-method/ZellePayment";
+import ZellePayment from "../payment-method/ZellePayment";
 import CardPaymentForm from "../payment-method/CardPaymentForm";
 import { Link } from "react-router-dom";
 import ButtonPayment from "../share/button/ButtonPayment";
@@ -43,20 +43,22 @@ const PaymentMethodLayout = () => {
               <button
                 value="card"
                 onClick={() => handleChange("card")}
-                className={`px-12 py-2 rounded-md ${selectedMethod === "card"
-                  ? "bg-[#14649b] text-gray-100"
-                  : "bg-gray-200 text-gray-700"
-                  }`}
+                className={`px-12 py-2 rounded-md ${
+                  selectedMethod === "card"
+                    ? "bg-[#14649b] text-gray-100"
+                    : "bg-gray-200 text-gray-700"
+                }`}
               >
                 Card
               </button>
               <button
                 value="zelle"
                 onClick={() => handleChange("zelle")}
-                className={`px-12 py-2 rounded-md ${selectedMethod === "zelle"
-                  ? "bg-[#14649b] text-gray-100"
-                  : "bg-gray-200 text-gray-700"
-                  }`}
+                className={`px-12 py-2 rounded-md ${
+                  selectedMethod === "zelle"
+                    ? "bg-[#14649b] text-gray-100"
+                    : "bg-gray-200 text-gray-700"
+                }`}
               >
                 Zelle
               </button>
@@ -67,19 +69,16 @@ const PaymentMethodLayout = () => {
             {selectedMethod === "card" ? (
               <CardPaymentForm formDataContext={formDataContext} />
             ) : (
-              <Zelle />
+              <ZellePayment formDataContext={formDataContext} />
             )}
           </div>
-          {
-            selectedMethod === "zelle" && (
-              <div className="pt-4 flex justify-end">
-                <Link to="/badminton/registration">
-                  <ButtonPayment title={"Back"} />
-                </Link>
-              </div>
-            )
-          }
-
+          {selectedMethod === "zelle" && (
+            <div className="pt-4 flex justify-end">
+              <Link to="/badminton/registration">
+                <ButtonPayment title={"Back"} />
+              </Link>
+            </div>
+          )}
         </fieldset>
       </div>
     </div>

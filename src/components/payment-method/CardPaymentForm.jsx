@@ -5,13 +5,13 @@ import {
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
-import { STRIPE_PUBLIC_SECRET } from "../../config";
+import { APP_URL, STRIPE_PUBLIC_SECRET } from "../../config";
 
 const stripePromise = loadStripe(STRIPE_PUBLIC_SECRET);
 
 const CardPaymentForm = ({ formDataContext }) => {
-  const navigate = useNavigate();
   const [clientSecret, setClientSecret] = useState(null);
+  const navigate = useNavigate();
 
   const playerInfo = formDataContext?.personalInfo;
 
@@ -25,6 +25,8 @@ const CardPaymentForm = ({ formDataContext }) => {
       player2Email: playerInfo?.player2Email,
       player1Phone: playerInfo?.player1PhoneNumber || "",
       player2Phone: playerInfo?.player2PhoneNumber || "",
+      player1Image: playerInfo?.player1Image,
+      player2Image: playerInfo?.player2Image,
       event: "Badminton Registration",
       eventName: "Badminton Registration",
     }),
